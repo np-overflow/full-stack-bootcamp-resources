@@ -1,6 +1,6 @@
 ---
 # try also 'default' to start simple
-theme: seriph
+theme: geist
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://source.unsplash.com/collection/94734566/1920x1080
@@ -26,17 +26,17 @@ drawings:
 Presentation slides for developers
 
 <div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
+  <span @click="$slidev.nav.next" class="rounded cursor-pointer py-1 px-2" hover="bg-white bg-opacity-10">
     Press Space for next page <carbon:arrow-right class="inline"/>
   </span>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
+<div class="flex m-6 gap-2 abs-br">
+  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl opacity-50 icon-btn !border-none !hover:text-white">
     <carbon:edit />
   </button>
   <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
+    class="text-xl opacity-50 icon-btn !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
 </div>
@@ -99,10 +99,10 @@ Hover on the bottom-left corner to see the navigation's controls panel, [learn m
 <!-- https://sli.dev/guide/animations.html#click-animations -->
 <img
   v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
+  class="opacity-50 -bottom-9 -left-7 w-80 absolute"
   src="https://sli.dev/assets/arrow-bottom-left.svg"
 />
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+<p v-after class="opacity-30 transform bottom-23 left-45 -rotate-10 absolute">Here!</p>
 
 ---
 layout: image-right
@@ -148,7 +148,7 @@ function updateUser(id: number, update: User) {
 
 # Components
 
-<div grid="~ cols-2 gap-4">
+<div grid="~ gap-4 cols-2">
 <div>
 
 You can use Vue components directly inside your slides.
@@ -185,7 +185,7 @@ class: px-20
 
 Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
 
-<div grid="~ cols-2 gap-2" m="-t-2">
+<div grid="~ gap-2 cols-2" m="-t-2">
 
 ```yaml
 ---
@@ -225,33 +225,33 @@ Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
 </div>
 ```
 
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
+<div class="mt-6 w-60 relative">
+  <div class="h-40 w-40 relative">
     <img
       v-motion
       :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
       :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
+      class="top-0 right-0 bottom-0 left-0 absolute"
       src="https://sli.dev/logo-square.png"
     />
     <img
       v-motion
       :initial="{ y: 500, x: -100, scale: 2 }"
       :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
+      class="top-0 right-0 bottom-0 left-0 absolute"
       src="https://sli.dev/logo-circle.png"
     />
     <img
       v-motion
       :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
       :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
+      class="top-0 right-0 bottom-0 left-0 absolute"
       src="https://sli.dev/logo-triangle.png"
     />
   </div>
 
   <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
+    class="top-14 left-40 text-5xl text-[#2B90B6] -z-1 absolute"
     v-motion
     :initial="{ x: -80, opacity: 0}"
     :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
@@ -318,7 +318,7 @@ $$
 
 You can create diagrams / graphs from textual descriptions, directly in your Markdown.
 
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
+<div class="-mb-6 grid pt-4 gap-10 grid-cols-3">
 
 ```mermaid {scale: 0.5}
 sequenceDiagram
