@@ -2,8 +2,8 @@
   "name": "day-two",
   "private": true,
   "scripts": {
-    "build": "slidev build",
-    "dev": "slidev --open",
+    "build": "slidev build --base /day-two/ --out ../../dist/day-two",
+    "dev": "slidev",
     "export": "slidev export"
   },
   "dependencies": {
