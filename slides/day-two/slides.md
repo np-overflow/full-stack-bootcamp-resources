@@ -2,13 +2,19 @@
 theme: geist
 colorSchema: light
 highlighter: shiki
-info: |
-  # Overflow Full Stack Bootcamp
 drawings:
   persist: false
+fonts:
+  sans: Inter
+  mono: Jetbrains Mono
+  weights: 200,400,600,800
+
+info: |
+  # Overflow Full Stack Bootcamp
 
 layout: cover
 ---
+
 
 # Overflow Full Stack Bootcamp
 
