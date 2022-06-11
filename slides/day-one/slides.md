@@ -30,6 +30,7 @@ h1 {
   background-color: orange;
   background-image: linear-gradient(45deg, orange 10%, orangered 30%);
   background-size: 100%;
+  background-clip: text;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -41,91 +42,57 @@ layout: iframe-right
 url: https://app.sli.do/event/d4pMQuvg1xXWKiQaobbsT7/embed/polls/a326f223-847b-4478-bff3-4922e75a6d40
 ---
 
-# What is Slidev?
+# Before we start...
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
+<span class="text-xl">
+How's everyone doing today?
+</span>
 
 ---
 
-# Navigation
+# Bootcamp schedule
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-### Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="opacity-50 -bottom-9 -left-7 w-80 absolute"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="opacity-30 transform bottom-23 left-45 -rotate-10 absolute">Here!</p>
+| Time              | Activity               |
+| ----------------- | ---------------------- |
+| 9.55am - 10.15am  | Arrival and attendance |
+| 10.15am - 11.00am | Icebreakers and games  |
+| 11.00am - 12.15pm | HTML, CSS, JS          |
+| 12.15pm - 1.15pm  | LONCH 🐔                |
+| 1.15pm - 4.30pm   | Vue                    |
+| 4.30pm - 5.30pm   | Practical time 🧪       |
 
 ---
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+
+# Finding your way around things
+
+### Resources
+
+* [https://bootcamp.np-overflow.club](https://bootcamp.np-overflow.club)
+  * All resources will be accessible from this URL, including this presentation!
+
 ---
 
-# Code
+# Finding your way around things
 
-Use code snippets and get the highlighting directly![^1]
+### Using the slides
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
+Interactive examples like this:
 
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
+<div grid="~ gap-4 cols-2">
+<div>
+
+<Counter />
+
+are available throughout the slides!
+
+</div>
+<div>
+
+```html
+<Counter />
 ```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
+</div>
+</div>
 
 ---
 
