@@ -1,7 +1,7 @@
 import fs from 'node:fs'
-import {marked} from 'marked'
+import { marked } from 'marked'
 
-const readme = fs.readFileSync('README.md', {encoding: 'utf8', flag: 'r'})
+const readme = fs.readFileSync('README.md', { encoding: 'utf8', flag: 'r' })
 
 //language=HTML
 function createHTML(md) {
