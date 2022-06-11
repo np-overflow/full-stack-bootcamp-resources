@@ -12,7 +12,9 @@ layout: cover
 
 # Overflow Full Stack Bootcamp
 
-Day one, 10am -- 5.30pm
+Day [zero]
+
+10am -- 5.30pm
 
 <!--
 Very color
@@ -21,7 +23,7 @@ Very color
 <style>
 h1 {
   background-color: orange;
-  background-image: linear-gradient(45deg, orange 10%, orangered 20%);
+  background-image: linear-gradient(45deg, orange 10%, orangered 30%);
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
