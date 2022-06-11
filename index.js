@@ -19,7 +19,7 @@ function createHTML(md) {
         '    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/full.global.js"></script>',
         '    <link rel="preconnect" href="https://fonts.googleapis.com">',
         '    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-        '    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap" rel="stylesheet">',
+        '    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,112.5,400;8..144,112.5,700&display=swap" rel="stylesheet">',
         '    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css">',
         '</head>',
         '<body>',
