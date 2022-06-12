@@ -29,6 +29,12 @@ Day [one]
 
 10am -- 5.30pm
 
+<div class="m-6 abs-br">
+
+Before we start, open the slides on your laptop: **https://bootcamp.np-overflow.club**
+
+</div>
+
 <!--
 Very color
 -->
