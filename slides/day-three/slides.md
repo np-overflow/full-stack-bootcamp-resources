@@ -19,38 +19,9 @@ info: |
     * [Day two](https://bootcamp.np-overflow.club/day-two)
     * [Day three](https://bootcamp.np-overflow.club/day-three)
 
-layout: cover
+src: introduction.md
 ---
 
-
-# Overflow Full Stack Bootcamp
-
-Day [two]
-
-10am -- 5.30pm
-
-<div class="m-6 abs-br">
-
-Before we start, open the slides on your laptop: **https://bootcamp.np-overflow.club**
-
-</div>
-
-<!--
-Very color
--->
-
-<style>
-h1 {
-  background-color: orange;
-  background-image: linear-gradient(45deg, orange 10%, orangered 30%);
-  background-size: 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
 ---
 
 # What is Slidev?
