@@ -1,0 +1,33 @@
+export function createSrcDoc(script: string) {
+  return [
+    '<!DOCTYPE html>',
+    '<html>',
+    '  <head>',
+    '    <script>',
+    "      ['log', 'error'].forEach((level) => {",
+    '        const original = console[level];',
+    '        console[level] = (...args) => {',
+    '          const msg = String(args[0]);',
+    '          if (',
+    "            msg.includes('You are running a development build of Vue') ||",
+    "            msg.includes('You are running the esm-bundler build of Vue')",
+    '          ) {',
+    '            return;',
+    '          }',
+    '',
+    "          window.parent.postMessage({ level, msg, args }, '*');",
+    '        };',
+    '      });',
+    '    </script>',
+    '',
+    '    <script>',
+    "      window.addEventListener('message', () => {",
+    '        (async () => {',
+    script,
+    '        })()',
+    '      })',
+    '    </script>',
+    '  </head>',
+    '</html>'
+  ].join('\n')
+}

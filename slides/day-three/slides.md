@@ -3,7 +3,7 @@ theme: geist
 colorSchema: light
 highlighter: shiki
 drawings:
-  persist: false
+  persist: true
 fonts:
   sans: Inter
   mono: Jetbrains Mono

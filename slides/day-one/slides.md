@@ -3,7 +3,7 @@ theme: geist
 colorSchema: light
 highlighter: shiki
 drawings:
-  persist: false
+  persist: true
 fonts:
   sans: Inter
   mono: Jetbrains Mono
@@ -81,16 +81,17 @@ Interactive examples like this:
 <div grid="~ gap-4 cols-2">
 <div>
 
-<Counter />
+<Runner code="console.log('Hello there! 🐔');console.error('This is very red');">
+
+```js
+console.log('Hello there! 🐔');
+console.error('This is very red');
+```
+
+</Runner>
 
 are available throughout the slides!
 
-</div>
-<div>
-
-```html
-<Counter />
-```
 </div>
 </div>
 
