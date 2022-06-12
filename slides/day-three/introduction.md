@@ -57,10 +57,10 @@ How's everyone doing today?
 | ----------------- | ---------------------- |
 | 9.55am - 10.15am  | Arrival and attendance |
 | 10.15am - 11.00am | Icebreakers and games  |
-| 11.00am - 12.15pm | HTML, CSS, JS          |
+| 11.00am - 12.15pm | Recap                  |
 | 12.15pm - 1.15pm  | LONCH 🐔                |
-| 1.15pm - 4.30pm   | Vue                    |
-| 4.30pm - 5.30pm   | Practical time 🧪       |
+| 1.15pm - 4.45pm   | Build ⚒️                |
+| 4.45pm - 5.30pm   | Showcase ✨🎉            |
 
 ---
 
