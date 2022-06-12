@@ -12,6 +12,13 @@ fonts:
 info: |
   # Overflow Full Stack Bootcamp
 
+  Day two
+
+  Links to other slides:
+    * [Day one](https://bootcamp.np-overflow.club/day-one)
+    * [Day two](https://bootcamp.np-overflow.club/day-two)
+    * [Day three](https://bootcamp.np-overflow.club/day-three)
+
 layout: cover
 ---
 
