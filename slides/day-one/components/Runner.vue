@@ -80,7 +80,7 @@ function close() {
 
     <br />
 
-    <div grid="~ cols-2">
+    <div grid="~ cols-1 md:cols-2" class="gap-2">
       <span class="font-mono">
         <span v-for="line in state.output" :class="{ 'text-red-700': line.level === 'error' }">
           {{ line.msg }}
