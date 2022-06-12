@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { MODULEDECLARATION_TYPES } from '@babel/types';
 import { ref, reactive, computed, onMounted, onBeforeUnmount } from 'vue';
 import { createSrcDoc } from './runner-srcdoc';
 
