@@ -2,7 +2,15 @@
 layout: cover
 ---
 
-# Firebase 🔥
+<div class="flex gap-10 items-center">
+
+<h1 class="m-0">
+  Firebase
+</h1>
+
+<img class="w-14" src="https://api.iconify.design/logos:firebase.svg"/>
+
+</div>
 
 <style>
 h1 {
