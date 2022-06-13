@@ -1,4 +1,4 @@
-export function createSrcDoc(script: string) {
+export function createSrcDoc(script: string, body?: string) {
   return [
     '<!DOCTYPE html>',
     '<html>',
@@ -28,6 +28,9 @@ export function createSrcDoc(script: string) {
     '      })',
     '    </script>',
     '  </head>',
+    '  <body>',
+    body,
+    '  </body>',
     '</html>'
   ].join('\n')
 }

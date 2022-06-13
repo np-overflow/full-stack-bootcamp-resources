@@ -72,13 +72,13 @@ layout: two-cols
 # HTML, CSS, JS
 
 * HTML: Hypertext Markup Language
-  * Provides the structure of your webpage
+  * Provides the content of your webpage
   
 * CSS: Cascading Style Sheets
   * Provides styling of your webpage
 
 * JS: Javascript
-  * Provides the logic of your webpage
+  * Provides the functionality of your webpage
   
 ::right::
 
@@ -101,4 +101,25 @@ layout: two-cols
 
 # HTML
 
+##### Headings
 
+<RunnerWebsite code="<h1>hello</h1><h2>Smaller hello</h2>">
+
+```html
+<h1>hello</h1>
+<h2>Smaller hello</h2>
+```
+
+</RunnerWebsite>
+
+<br/>
+
+##### Buttons
+
+<RunnerWebsite code="<button>BUTTOTOOTTN</button>">
+
+```html
+<button>BUTTOTOOTTN</button>
+```
+
+</RunnerWebsite>
