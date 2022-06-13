@@ -151,13 +151,54 @@ layout: two-cols
 </div>
 
 ---
+
+# Structure of HTML
+
+<div class="flex flex-row-reverse">
+<div class="flex flex-1 items-center">
+
+```html {all|1|2,10}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script></script>
+    <style></style>
+  </head>
+  <body>
+    <h1>HELLO!</h1>
+  </body>
+</html>
+```
+
+</div>
+<div class="flex-1">
+
+<div v-click="1">
+<div v-click-hide="2">
+
+* Tell browser that this file is HTML
+
+</div>
+<div v-click="2">
+<div v-click-hide="3">
+
+* Start of `html`
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+---
 layout: two-cols
 ---
 
 # HTML tags
 
 * Specify what kind of elements are shown
-* Many types of elements you can choose from
+* Many types of elements you can choose from [^1]
   * Headings
   * Buttons
   * Input fields
@@ -198,6 +239,8 @@ layout: two-cols
 </RunnerWebsite>
 </div>
 
+[^1]: [List of HTML tags](https://www.w3schools.com/TAGs/)
+
 ---
 layout: two-cols
 ---
@@ -206,7 +249,7 @@ layout: two-cols
 
 # HTML attributes
 
-* Customize element
+* Customize elements [^1]
   * `style`
   * `type`
   * etc
@@ -265,3 +308,13 @@ layout: two-cols
 
 </RunnerWebsite>
 </div>
+
+[^1]: [More about attributes](https://www.w3schools.com/htmL/html_attributes.asp)
+
+
+---
+
+# CSS
+
+* Style elements and make them look ✨ fancy ✨💄💁
+* We've already used CSS in the `style` attribute previously
