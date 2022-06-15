@@ -1,5 +1,5 @@
 <script setup>
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 // Firebase Initialization
 const auth = getAuth();
@@ -15,6 +15,18 @@ function register() {
     })
     .catch((error) => alert(error.message));
 }
+
+function login() {
+  const email = $('input#txtemail').val();
+  const password = $('input#txtpassword').val();
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert('SignIn ok, details in console panel')
+      console.log(userCredential.user);
+    })
+    .catch((error) => alert(error.message));
+}
 </script>
 
 <template scoped>
@@ -22,9 +34,10 @@ function register() {
   <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet' type='text/css'>
   <div class='login'>
     <h2>Register</h2>
-    <input id='txtemail' name='email' placeholder='E-Mail Address' type='text'>
-    <input id='txtpassword' name='password' placeholder='Password' type='password'>
-    <input id='btnSubmit' class='animated' type='submit' value='Register' v-on:click="register()">
+    <input id='txtemail' name='email' placeholder='E-Mail Address' type='text' />
+    <input id='txtpassword' name='password' placeholder='Password' type='password' />
+    <input id='btnSignUp' class='animated' type='submit' value='Register' v-on:click="register()" />
+    <input id='btnSignIn' class='animated' type="submit" value='Log In' v-on:click="login()" />
   </div>
 </template>
 
