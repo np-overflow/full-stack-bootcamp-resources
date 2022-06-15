@@ -95,20 +95,11 @@ layout: two-cols
 
 <img class="h-full object-contain w-full" src="/images/Firebase-RegisterApp-003.png" />
 
-
-
-
-
-
-
-
-
-
 ---
 layout: two-cols
 ---
 
-# Firebase Auth - Code (Init)
+# Firebase Auth - Init (JS)
 
 _Initialize firebase app_
 
@@ -142,7 +133,7 @@ initializeApp(firebaseConfig);
 layout: two-cols
 ---
 
-# Firebase Auth - Code (HTML)
+# Firebase Auth - SignUp (HTML)
 
 _Basic HTML_
 
@@ -208,7 +199,7 @@ _Addon HTML code_
 
 ::right::
 
-```HTML
+```html
 <!--     <input id='txtpassword' name='password' placeholder='Password' type='password' /> -->
 <!--     <input id='btnSignUp' class='animated' type='submit' value='Register' v-on:click="register()" /> -->
          <input id='btnSignIn' class='animated' type="submit" value='Log In' v-on:click="login()" />
