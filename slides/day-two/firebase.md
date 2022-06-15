@@ -39,7 +39,7 @@ Don't use school email to login. School email <span class="text-red-700">doesn't
 layout: two-cols
 ---
 
-# Create Firebase Project
+# Firebase Project - Create
 
 * Click on Create button
 
@@ -51,9 +51,11 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Create Firebase Project
+# Firebase Project - Info
 
-* Click on Create button
+* Give your project a name
+* Check the 2 checkbox
+* Click on the Continue button
 
 ::right::
 
@@ -63,7 +65,11 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Create Firebase Project
+# Firebase Project - Enable Google Analytics
+
+* Click on Continue button
+
+_Double confirm the 'Enable Google Analytics' for this project is checked_
 
 ::right::
 
@@ -74,7 +80,10 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Create Firebase Project
+# Firebase Project - Configure Google Analytics
+
+* Check 'I accept the Google Analytics terms'
+* Click on Create project button
 
 ::right::
 
@@ -84,7 +93,9 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Create Firebase Project
+# Firebase Project - Complete Setup
+
+* Click on Continue button
 
 ::right::
 
