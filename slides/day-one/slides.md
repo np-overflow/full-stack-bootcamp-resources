@@ -318,3 +318,22 @@ layout: two-cols
 
 * Style elements and make them look ✨ fancy ✨💄💁
 * We've already used CSS in the `style` attribute previously
+
+---
+
+# Installation
+
+* NodeJS
+* NPM
+* Firebase CLI
+
+---
+
+# Installation
+
+Install NodeJS and NPM from [here](https://docs.volta.sh/guide/getting-started#windows-installation)
+
+---
+
+# Installation
+
