@@ -36,7 +36,7 @@ layout: two-cols
 
 <img class="h-full object-contain w-full" src="/images/Firebase-Auth-003.png" />
 
---
+---
 layout: two-cols
 ---
 

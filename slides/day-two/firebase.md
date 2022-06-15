@@ -60,7 +60,7 @@ layout: two-cols
 <img class="h-full object-contain w-full" src="/images/Firebase-Console-002.png" />
 
 ---
-layout: center
+layout: two-cols
 ---
 
 # Create Firebase Project
@@ -71,7 +71,7 @@ layout: center
 
 
 ---
-layout: center
+layout: two-cols
 ---
 
 # Create Firebase Project
@@ -81,7 +81,7 @@ layout: center
 <img class="h-full object-contain w-full" src="/images/Firebase-Console-004.png" />
 
 ---
-layout: center
+layout: two-cols
 ---
 
 # Create Firebase Project
