@@ -33,3 +33,11 @@ src: vite-vue.md
 ---
 src: firebase.md
 ---
+
+---
+src: firebase-auth.md
+---
+
+---
+src: firebase-rtdb.md
+---
