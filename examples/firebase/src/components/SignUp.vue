@@ -5,8 +5,8 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 const auth = getAuth();
 
 function register() {
-  const email = $('input#txtemail').val();
-  const password = $('input#txtpassword').val();
+  const email = document.getElementById('txtemail').value;
+  const password = document.getElementById('txtpassword').value;
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((credential) => {
@@ -17,8 +17,8 @@ function register() {
 }
 
 function login() {
-  const email = $('input#txtemail').val();
-  const password = $('input#txtpassword').val();
+  const email = document.getElementById('txtemail').value;
+  const password = document.getElementById('txtpassword').value;
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
