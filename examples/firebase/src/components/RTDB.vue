@@ -94,7 +94,7 @@ function addTableRow(studentList) {
     }
 }
 
-window.onload = () => retrieveAll();
+retrieveAll(); 
 </script>
 
 <template>
