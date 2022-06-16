@@ -30,7 +30,23 @@ function deleteById(studentId) {
     remove(ref(getDatabase(), `student/${studentId}`));
 }
 
-function updateById(studentId) {
+function updateById(id) {
+    const name = document.getElementById(`${id}-name`).value;
+    const studentId = document.getElementById(`${id}-studentId`).value;
+    const course = document.getElementById(`${id}-course`).value;
+
+    if ([name, studentId, course].includes('')) {
+        alert('One of the student info is null or empty');
+        return;
+    }
+
+    set(ref(getDatabase(), 'student/' + studentId), {
+        name: name,
+        studentId: studentId,
+        course: course
+    });
+
+    deleteById(id);
 }
 
 // UI
