@@ -30,6 +30,9 @@ function deleteById(studentId) {
     remove(ref(getDatabase(), `student/${studentId}`));
 }
 
+function updateById(studentId) {
+}
+
 // UI
 function addTableRow(studentList) {
     // clean data
@@ -60,11 +63,11 @@ function addTableRow(studentList) {
         colCourse.textContent = student['course'];
 
         // Column action (last column)
-        const form = document.createElement('form');
         const btnUpdate = document.createElement('button');
         const btnDelete = document.createElement('button');
 
-        btnDelete.addEventListener('click', () => { deleteById(student['studentId']) });
+        btnUpdate.addEventListener('click', () => allowModify(student['studentId']));
+        btnDelete.addEventListener('click', () => deleteById(student['studentId']));
 
         const icoEdit = document.createElement('i');
         const icoTrash = document.createElement('i');
@@ -78,10 +81,8 @@ function addTableRow(studentList) {
         btnUpdate.appendChild(icoEdit);
         btnDelete.appendChild(icoTrash);
 
-        form.appendChild(btnUpdate);
-        form.appendChild(btnDelete);
-
-        colAction.appendChild(form);
+        colAction.appendChild(btnUpdate);
+        colAction.appendChild(btnDelete);
 
         // Add all column to table row
         row.appendChild(colName);
@@ -89,9 +90,56 @@ function addTableRow(studentList) {
         row.appendChild(colCourse);
         row.appendChild(colAction);
 
+        row.id = student['studentId'];
+
         // Add row to table body
         table.appendChild(row);
     }
+}
+
+function allowModify(studentId) {
+    const row = document.getElementById(studentId);
+    const name = document.querySelector(`#${studentId} > td:nth-child(1)`).textContent;
+    const course = document.querySelector(`#${studentId} > td:nth-child(3)`).textContent;
+
+    row.innerHTML = '';
+
+    const colName = document.createElement('td');
+    const colStudentId = document.createElement('td');
+    const colCourse = document.createElement('td');
+    const colAction = document.createElement('td');
+
+    const tbName = document.createElement('input');
+    tbName.setAttribute('type', 'text');
+    tbName.setAttribute('id', `${studentId}-name`);
+    tbName.setAttribute('placeholder', 'Student Name');
+    tbName.setAttribute('value', name);
+
+    const tbStudentId = document.createElement('input');
+    tbStudentId.setAttribute('type', 'text');
+    tbStudentId.setAttribute('id', `${studentId}-studentId`);
+    tbStudentId.setAttribute('placeholder', 'Student ID');
+    tbStudentId.setAttribute('value', studentId);
+
+    const tbCourse = document.createElement('input');
+    tbCourse.setAttribute('type', 'text');
+    tbCourse.setAttribute('id', `${studentId}-course`);
+    tbCourse.setAttribute('placeholder', 'Student Course');
+    tbCourse.setAttribute('value', course);
+
+    const btnUpdate = document.createElement('button');
+    btnUpdate.addEventListener('click', () => updateById(studentId));
+    btnUpdate.textContent = 'Update';
+
+    colName.appendChild(tbName);
+    colStudentId.appendChild(tbStudentId);
+    colCourse.appendChild(tbCourse);
+    colAction.appendChild(btnUpdate);
+
+    row.append(colName);
+    row.append(colStudentId);
+    row.append(colCourse);
+    row.append(colAction);
 }
 
 retrieveAll(); 
@@ -115,12 +163,9 @@ retrieveAll();
                 <tfoot></tfoot>
                 <tbody>
                     <tr>
-                        <td><label for=""><input type="text" name="" id="name" placeholder="Student Name" /></label>
-                        </td>
-                        <td><label for=""><input type="text" name="" id="studentId" placeholder="Student ID" /></label>
-                        </td>
-                        <td><label for=""><input type="text" name="" id="course" placeholder="Student Course" /></label>
-                        </td>
+                        <td> <input type="text" id="name" placeholder="Student Name" /> </td>
+                        <td> <input type="text" id="studentId" placeholder="Student ID" /> </td>
+                        <td> <input type="text" id="course" placeholder="Student Course" /> </td>
                         <td><button class="" v-on:click="insert()">Submit</button></td>
                     </tr>
                 </tbody>
@@ -132,10 +177,5 @@ retrieveAll();
 <style scoped>
 table {
     width: 100%;
-}
-
-td form {
-    margin: 0;
-    padding: 0;
 }
 </style>
