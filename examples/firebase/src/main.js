@@ -6,6 +6,7 @@ import { initializeApp } from "firebase/app";
 const firebaseConfig = {
   apiKey: "AIzaSyAWTQczJnVmx_xn3lGAyBLB129tamE-28g",
   authDomain: "overflow-bootcamp.firebaseapp.com",
+  databaseURL: "https://overflow-bootcamp-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "overflow-bootcamp",
   storageBucket: "overflow-bootcamp.appspot.com",
   messagingSenderId: "877760255311",
