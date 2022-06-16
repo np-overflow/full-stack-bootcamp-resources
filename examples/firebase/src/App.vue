@@ -1,5 +1,5 @@
 <script setup>
-import SignUp from './components/SignUp.vue';
+import Auth from './components/Auth.vue';
 import RTDB from './components/RTDB.vue';
 
 function toggle(tabname) {
@@ -35,7 +35,7 @@ window.onload = () => { toggle('auth'); }
   </div>
 
   <div id="auth-content" class="tab-content content">
-    <SignUp />
+    <Auth />
   </div>
 
   <div id="rtdb-content" class="tab-content content">
