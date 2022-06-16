@@ -1,4 +1,5 @@
 <script setup>
+import database from './firebase.js';
 import Auth from './components/Auth.vue';
 import RTDB from './components/RTDB.vue';
 
