@@ -89,6 +89,7 @@ layout: two-cols
 # Firebase Auth - Add App
 
 * Install Firebase library in your vite project
+* Copy the JSON
 * Click on "Continue to console"
 
 ::right::
@@ -99,60 +100,70 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Firebase Auth - Init (JS)
+# Auth (Code) - Init
 
-_Initialize firebase app_
+* Create new file 'firebase.js' under src folder
+* Paste the JSON into 'firebase.js'
 
-Open your main.js, 
-
-Add the code copied from firebase just now
 ::right::
 
 ```javascript
-// import { createApp } from 'vue'
-// import App from './App.vue'
-
+// firebase.js
 import { initializeApp } from "firebase/app";
+import { getAuth } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: "********************",
-  authDomain: "overflow-bootcamp.firebaseapp.com",
-  projectId: "overflow-bootcamp",
-  storageBucket: "overflow-bootcamp.appspot.com",
-  messagingSenderId: "877760255311",
-  appId: "********************",
-  measurementId: "G-CQGF65LHS5"
+    apiKey: "********************",
+    authDomain: "overflow-bootcamp.firebaseapp.com",
+    databaseURL: "********************",
+    projectId: "overflow-bootcamp",
+    storageBucket: "overflow-bootcamp.appspot.com",
+    messagingSenderId: "877760255311",
+    appId: "********************",
+    measurementId: "G-CQGF65LHS5"
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const authentication = getAuth();
+const database = getDatabase();
 
-// createApp(App).mount('#app')
+export default { app, authentication, database }
 ```
 
 ---
 layout: two-cols
 ---
 
-# Firebase Auth - SignUp (HTML)
+# Auth (Code - HTML) - Register
 
-_Basic HTML_
-
-* Create a view component
-* Create a form with 2 text input and 1 submit button
+* Create a view component under 'src/components' folder
+* Create a view template
 * Alternative way, copy & paste the code
 
 ::right::
 
 ```html
-<!-- <template scoped> -->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet' type='text/css'>
-  <div class='login'>
-    <h2>Register</h2>
-    <input id='txtemail' name='email' placeholder='E-Mail Address' type='text'>
-    <input id='txtpassword' name='password' placeholder='Password' type='password'>
-    <input id='btnSubmit' class='animated' type='submit' value='Register' v-on:click="register()">
-  </div>
+<!-- <template> -->
+    <table>
+        <thead>
+            <tr>
+                <th>Login | Registration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input v-model="email" placeholder="Email" ref="email" /></td>
+            </tr>
+            <tr>
+                <td><input v-model="password" placeholder="Password" ref="password" /></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <button @click="register">Register</button>
+            <button @click="login">Login</button>
+        </tfoot>
+    </table>
 <!-- </template> -->
 ```
 
@@ -160,31 +171,55 @@ _Basic HTML_
 layout: two-cols
 ---
 
-# Firebase Auth - SignUp (JS)
+# Auth (Code - CSS) - Register
 
-_Basic Javascript_
+* Add basic css design
 
-Code to create an account using Firebase Auth service
+::right::
+
+```css
+/* <style scoped> */
+table {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+/* </style> */
+```
+
+---
+layout: two-cols
+---
+
+# Auth (Code - JS) - Register
+
+* Create a function to handle signup event
 
 ::right::
 
 ```javascript
-// <script setup>
+// <script steup>
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-// Firebase Initialization
-const auth = getAuth();
+const authentication = getAuth();
 
-function register() {
-  const email = $('input#txtemail').val();
-  const password = $('input#txtpassword').val();
+export default {
+    methods: {
+        register: function () {
+            const email = this.$refs.email.value;
+            const password = this.$refs.password.value;
 
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((credential) => {
-      alert('SignUp ok, details in console panel')
-      console.log(credential.user);
-    })
-    .catch((error) => alert(error.message));
+            createUserWithEmailAndPassword(authentication, email, password)
+                .then((credential) => {
+                    alert('SignUp ok, details in console panel')
+                    console.log(credential.user);
+                })
+                .catch((error) => alert(error.message));
+        }
+    }
 }
 // </script>
 ```
@@ -193,46 +228,32 @@ function register() {
 layout: two-cols
 ---
 
-# Firebase Auth - SignIn (HTML)
+# Auth (Code - JS) - LogIn
 
-_Addon HTML code_
-
-::right::
-
-```html
-<!--     <input id='txtpassword' name='password' placeholder='Password' type='password' /> -->
-<!--     <input id='btnSignUp' class='animated' type='submit' value='Register' v-on:click="register()" /> -->
-         <input id='btnSignIn' class='animated' type="submit" value='Log In' v-on:click="login()" />
-<!--   </div> -->
-<!-- </template> -->
-```
-
----
-layout: two-cols
----
-
-# Firebase Auth - SignIn (JS)
-
-_Addon JS code_
+* Create a function to handle login event
 
 ::right::
 
 ```javascript
-// <script setup>
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+// <script steup>
+import { /** ... */, signInWithEmailAndPassword } from "firebase/auth";
 
-function register() { /** Magic code */ }
+export default {
+    methods: {
+        login: function () {
+            const email = this.$refs.email.value;
+            const password = this.$refs.password.value;
 
-function login() {
-  const email = $('input#txtemail').val();
-  const password = $('input#txtpassword').val();
+            signInWithEmailAndPassword(authentication, email, password)
+                .then((credential) => {
+                    alert('SignIn ok, details in console panel')
+                    console.log(credential.user);
+                })
+                .catch((error) => alert(error.message));
+        },
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      alert('SignIn ok, details in console panel')
-      console.log(userCredential.user);
-    })
-    .catch((error) => alert(error.message));
-}
+        register: function () { /** ... */}
+      }
+    }
 // </script>
 ```
