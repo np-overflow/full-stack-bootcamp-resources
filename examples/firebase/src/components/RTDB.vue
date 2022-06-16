@@ -73,13 +73,6 @@ export default {
 
 <template>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" />
-
-    <input v-model="name" placeholder="Student Name" ref="name" />
-    <input v-model="id" placeholder="Student ID" ref="id" />
-    <input v-model="course" placeholder="Student Course" ref="course" />
-    <button @click="create">Create</button>
-    <button @click="retrieveAll">Fetch All</button>
-
     <table>
         <thead>
             <tr>
@@ -90,6 +83,15 @@ export default {
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td><input v-model="name" placeholder="Student Name" ref="name" /></td>
+                <td><input v-model="id" placeholder="Student ID" ref="id" /></td>
+                <td><input v-model="course" placeholder="Student Course" ref="course" /></td>
+                <td>
+                    <button @click="create">Create</button>
+                    <button @click="retrieveAll">Fetch All</button>
+                </td>
+            </tr>
             <tr v-for="student in studentList">
                 <td>
                     <input 
@@ -132,6 +134,11 @@ export default {
 
 <style scoped>
 table {
-    width: 100;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 </style>
