@@ -135,35 +135,35 @@ layout: two-cols
                     <input 
                         :ref="student['id'] + '-name'" 
                         :value="student['name']"
-                        v-bind:disabled="!(enabledId == student['id'])" />
+                        v-bind:disabled="enabledId !== student['id']" />
                 </td>
                 <td>
                     <input 
                         :ref="student['id'] + '-id'" 
                         :value="student['id']"
-                        v-bind:disabled="!(enabledId == student['id'])" />
+                        v-bind:disabled="enabledId !== student['id']" />
                 </td>
                 <td>
                     <input 
                         :ref="student['id'] + '-course'" 
                         :value="student['course']"
-                        v-bind:disabled="!(enabledId == student['id'])" />
+                        v-bind:disabled="enabledId !== student['id']" />
                 </td>
                 <td>
                     <button 
                         class="fa fa-floppy-o" 
                         @click="updateById(student['id'])"
-                        v-bind:disabled="!(enabledId == student['id'])"></button>
+                        v-bind:disabled="enabledId !== student['id']"></button>
 
                     <button 
                         class="fa fa-pencil-square-o" 
                         @click="enableEdit(student['id'])"
-                        v-bind:disabled="(enabledId == student['id'])"></button>
+                        v-bind:disabled="enabledId === student['id']"></button>
 
                     <button 
                         class="fa fa-trash-o" 
                         @click="deleteById(student['id'])"
-                        v-bind:disabled="(enabledId == student['id'])"></button>
+                        v-bind:disabled="enabledId === student['id']"></button>
                 </td>
             </tr>
         <!-- </tbody> -->
@@ -366,7 +366,7 @@ export default {
                 name: newName,
                 id: newId,
                 course: newCourse
-            }).then(() => this.deleteById(id));
+            }).then(() => (newId === id) ? null : this.deleteById(id));
 
             this.enabledId = '';
         },
