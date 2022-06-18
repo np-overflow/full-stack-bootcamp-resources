@@ -91,10 +91,10 @@ function create() {
         </div>
 
         <br />
+        <h2 class="text-2xl">Other classmates 🐈🐈</h2>
+        <br />
 
         <div class="w-full overflow-x-scroll">
-            <h2 class="text-2xl">Other classmates 🐈🐈</h2>
-            <br />
             <table class="w-full">
                 <thead>
                     <tr>
