@@ -42,6 +42,10 @@ async function logout() {
         form.errorMessage = e.message
     }
 }
+
+function openDatabases() {
+    window.open("#/rtdb", "_blank")
+}
 </script>
 
 <template>
@@ -81,7 +85,10 @@ async function logout() {
 
             <br />
 
-            <Button @click="logout">Log out</Button>
+            <div class="flex justify-between">
+                <Button @click="logout" variant="alternative">Log out</Button>
+                <Button @click="openDatabases">Try out databases!</Button>
+            </div>
         </div>
 
         <form v-else @submit.prevent="login">
