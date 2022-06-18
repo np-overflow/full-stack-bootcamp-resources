@@ -329,11 +329,41 @@ layout: two-cols
 
 ---
 
-# Installation
+# NodeJS and NPM
 
-Install NodeJS and NPM from [here](https://docs.volta.sh/guide/getting-started#windows-installation)
+1. Download the `exe` installer file
+2. Run the installer
+3. Run the following commands in Powershell (or Terminal if you're on macOS)
+
+[Link to download](https://docs.volta.sh/guide/getting-started#windows-installation)
+
+```bash
+volta install node
+volta install npm
+volta install pnpm
+```
 
 ---
 
-# Installation
+#  Firebase CLI
+
+1. To install, run the command
+
+```bash
+pnpm i -g firebase-tools
+```
+
+2. Then, you need to login to Firebase
+
+```bash
+firebase login
+```
+
+3. Test if it works
+
+```bash
+firebase projects:list
+```
+
+[Read more here](https://firebase.google.com/docs/cli#sign-in-test-cli)
 
