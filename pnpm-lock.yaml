@@ -16,16 +16,12 @@ importers:
   examples/firebase:
     specifiers:
       '@vitejs/plugin-vue': ^2.3.3
-      '@vueuse/core': ^8.7.3
-      '@vueuse/firebase': ^8.7.3
       firebase: ^9.8.3
       vite: ^2.9.9
       vite-plugin-windicss: ^1.8.4
       vue: ^3.2.25
       windicss: ^3.5.4
     dependencies:
-      '@vueuse/core': 8.7.3_vue@3.2.37
-      '@vueuse/firebase': 8.7.3_firebase@9.8.3+vue@3.2.37
       firebase: 9.8.3
       vue: 3.2.37
     devDependencies:
@@ -949,36 +945,6 @@ packages:
       vue-demi: 0.13.1_vue@3.2.37
     dev: false
 
-  /@vueuse/core/8.7.3_vue@3.2.37:
-    resolution: {integrity: sha512-jpBnyG9b4wXgk0Dz3I71lfhD0o53t1tZR+NoAQ+17zJy7MP/VDfGIkq8GcqpDwmptLCmGiGVipkPbWmDGMic8Q==}
-    peerDependencies:
-      '@vue/composition-api': ^1.1.0
-      vue: ^2.6.0 || ^3.2.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-      vue:
-        optional: true
-    dependencies:
-      '@vueuse/metadata': 8.7.3
-      '@vueuse/shared': 8.7.3_vue@3.2.37
-      vue: 3.2.37
-      vue-demi: 0.13.1_vue@3.2.37
-    dev: false
-
-  /@vueuse/firebase/8.7.3_firebase@9.8.3+vue@3.2.37:
-    resolution: {integrity: sha512-jUmydMAwL6tpxbT/dNfDxSFTpYncavvmM5vtVw9hHQeLtD3Gfb4ccHLSQji1Ew+i77JehezLArNVZy6Oy+UzqA==}
-    peerDependencies:
-      firebase: '>=4.0.0'
-    dependencies:
-      '@vueuse/shared': 8.7.3_vue@3.2.37
-      firebase: 9.8.3
-      vue-demi: 0.13.1_vue@3.2.37
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: false
-
   /@vueuse/head/0.7.6_vue@3.2.37:
     resolution: {integrity: sha512-cOWqCkT3WiF5oEpw+VVEWUJd9RLD5rc7DmnFp3cePsejp+t7686uKD9Z9ZU7Twb7R/BI8iexKTmXo9D/F3v6UA==}
     peerDependencies:
@@ -989,10 +955,6 @@ packages:
 
   /@vueuse/metadata/8.6.0:
     resolution: {integrity: sha512-F+CKPvaExsm7QgRr8y+ZNJFwXasn89rs5wth/HeX9lJ1q8XEt+HJ16Q5Sxh4rfG5YSKXrStveVge8TKvPjMjFA==}
-    dev: false
-
-  /@vueuse/metadata/8.7.3:
-    resolution: {integrity: sha512-spf9kgCsBEFbQb90I6SIqAWh1yP5T1JoJGj+/04+VTMIHXKzn3iecmHUalg8QEOCPNtnFQGNEw5OLg0L39eizg==}
     dev: false
 
   /@vueuse/motion/2.0.0-beta.18_vue@3.2.37:
@@ -1017,21 +979,6 @@ packages:
 
   /@vueuse/shared/8.6.0_vue@3.2.37:
     resolution: {integrity: sha512-Y/IVywZo7IfEoSSEtCYpkVEmPV7pU35mEIxV7PbD/D3ly18B3mEsBaPbtDkNM/QP3zAZ5mn4nEkOfddX4uwuIA==}
-    peerDependencies:
-      '@vue/composition-api': ^1.1.0
-      vue: ^2.6.0 || ^3.2.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-      vue:
-        optional: true
-    dependencies:
-      vue: 3.2.37
-      vue-demi: 0.13.1_vue@3.2.37
-    dev: false
-
-  /@vueuse/shared/8.7.3_vue@3.2.37:
-    resolution: {integrity: sha512-PMc/h6cEakJ4+5VuNUGi7RnbA6CkLvtG2230x8w3zYJpW1P6Qphh9+dFFvHn7TX+RlaicF5ND0RX1NxWmAoW7w==}
     peerDependencies:
       '@vue/composition-api': ^1.1.0
       vue: ^2.6.0 || ^3.2.0

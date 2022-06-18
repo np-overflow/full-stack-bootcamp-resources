@@ -6,7 +6,7 @@ import { Link } from '../components';
   <div class="flex border-b-1 border-slate-300 py-2 px-4 justify-between items-center">
     <div class="flex gap-3 items-center">
       <img class="h-8 w-8 " src="https://api.iconify.design/logos:firebase.svg" />
-      <span class="font-semibold text-slate-800 text-2xl">Firebase</span>
+      <span class="font-semibold text-xl text-slate-800">Firebase</span>
     </div>
 
     <div class="flex">
