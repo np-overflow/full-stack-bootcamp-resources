@@ -24,11 +24,11 @@ Here are some links to the slides:
 | 2   | [Day two](/day-two)   | [Day two](https://bootcamp.np-overflow.club/day-one)   |
 | 3   | [Day two](/day-three) | [Day two](https://bootcamp.np-overflow.club/day-three) |
 
-And here are some links to the examples
+And here are some links to the examples:
 
 | Day | Topic    | Link                  | Permalink                                              |
 | --- | -------- | --------------------- | ------------------------------------------------------ |
-| 2   | Firebase | [Firebase](/firebase) | [Firebase](https://bootcamp.np-overflow.club/firebase) |
+| 2   | Firebase | [Firebase](/examples/firebase) | [Firebase](https://bootcamp.np-overflow.club/examples/firebase) |
 
 
 ### Overflow EXCO
