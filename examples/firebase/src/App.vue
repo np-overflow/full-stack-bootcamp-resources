@@ -1,21 +1,28 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { defineAsyncComponent, computed, ref } from 'vue';
+
+import MainLayout from './layouts/Main.vue'
+import NotFound from './pages/NotFound.vue'
+
+const routes = {
+  '/': defineAsyncComponent(() => import("./pages/About.vue")),
+  '/auth': defineAsyncComponent(() => import('./pages/Auth.vue')),
+  '/rtdb': defineAsyncComponent(() => import('./pages/RTDB.vue'))
+}
+
+const currentPath = ref(window.location.hash)
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/'] ?? NotFound
+})
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <MainLayout>
+    <component :is="currentView" />
+  </MainLayout>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
