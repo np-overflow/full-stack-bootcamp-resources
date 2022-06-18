@@ -151,47 +151,6 @@ layout: two-cols
 </div>
 
 ---
-
-# Structure of HTML
-
-<div class="flex flex-row-reverse">
-<div class="flex flex-1 items-center">
-
-```html {all|1|2,10}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script></script>
-    <style></style>
-  </head>
-  <body>
-    <h1>HELLO!</h1>
-  </body>
-</html>
-```
-
-</div>
-<div class="flex-1">
-
-<div v-click="1">
-<div v-click-hide="2">
-
-* Tell browser that this file is HTML
-
-</div>
-<div v-click="2">
-<div v-click-hide="3">
-
-* Start of `html`
-
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
----
 layout: two-cols
 ---
 
@@ -316,9 +275,49 @@ layout: two-cols
 
 # CSS
 
-* Style elements and make them look ✨ fancy ✨💄💁
+* Style elements and make them look ✨ fancy ✨💄💁 [^1]
+
 * We've already used CSS in the `style` attribute previously
 
+[^1]: [More about CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+<!-- TODO: More elaboration? Not sure hmm -->
+
+---
+layout: two-cols
+---
+
+# Javascript
+
+* Actually called ECMAScript
+* High level language
+
+*** 
+
+* Used on servers and browsers
+* Very speed 🚄
+
+---
+
+# Javascript output
+
+* Show output/print using `console`
+* Multiple logging levels
+  * `log`
+  * `warn`
+  * `error`
+
+<Runner code="console.log('This will show in the console!'); console.error('This will be red')">
+
+```javascript
+console.log('This will show in the console!')
+console.error('This will be red')
+```
+
+</Runner>
+
+---
+src: ./html-structure.md
 ---
 
 # Installation
