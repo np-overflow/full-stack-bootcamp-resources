@@ -4,7 +4,7 @@ export function createSrcDoc(script: string, body?: string) {
     '<html>',
     '  <head>',
     '    <script>',
-    "      ['log', 'error'].forEach((level) => {",
+    "      ['log', 'warn', 'error'].forEach((level) => {",
     '        const original = console[level];',
     '        console[level] = (...args) => {',
     '          const msg = String(args[0]);',
