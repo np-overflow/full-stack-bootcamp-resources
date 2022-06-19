@@ -4,13 +4,11 @@ layout: two-cols
 
 # Structure of HTML
 
-* Combining HTML, CSS and JS to build a coherent website
-
-* A basic HTML file
+* Combining HTML with CSS and JS to build a coherent website
 
 ::right::
 
-`index.html`
+`index.html`, a basic HTML file
 
 ```html
 <!DOCTYPE html>
@@ -161,6 +159,35 @@ layout: two-cols
 console.log("hello")
 ```
 
+---
+layout: two-cols
+---
+
+# Structure of HTML
+
+* In order to use ESM imports, we have to specify `type="module"` in the script tag
+* This lets the browser know we're using ESM imports
+
+::right::
+
+`index.html`
+
+```html {4-8}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module" src="script.js"></script>
+    <script type="module">
+      import { getStudents } from "./students.js"
+      console.log("Or an inline script")
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <h1>HELLO!</h1>
+  </body>
+</html>
+```
 
 ---
 layout: two-cols

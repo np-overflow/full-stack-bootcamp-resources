@@ -31,9 +31,6 @@ h1 {
 }
 </style>
 ---
-layout: iframe-right
-url: https://app.sli.do/event/d4pMQuvg1xXWKiQaobbsT7/embed/polls/a326f223-847b-4478-bff3-4922e75a6d40
----
 
 # Before we start...
 
@@ -57,9 +54,9 @@ How's everyone doing today?
 | ----------------- | ---------------------- |
 | 9.55am - 10.15am  | Arrival and attendance |
 | 10.15am - 11.00am | Icebreakers and games  |
-| 11.00am - 12.15pm | HTML, CSS, JS          |
+| 11.00am - 12.15pm | Web fundamentals       |
 | 12.15pm - 1.15pm  | LONCH 🐔                |
-| 1.15pm - 4.30pm   | Vue                    |
+| 1.15pm - 4.30pm   | Web fundamentals + Vue  |
 | 4.30pm - 5.30pm   | Practical time 🧪       |
 
 ---

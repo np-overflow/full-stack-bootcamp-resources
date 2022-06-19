@@ -31,9 +31,6 @@ h1 {
 }
 </style>
 ---
-layout: iframe-right
-url: https://app.sli.do/event/d4pMQuvg1xXWKiQaobbsT7/embed/polls/a326f223-847b-4478-bff3-4922e75a6d40
----
 
 # Before we start...
 

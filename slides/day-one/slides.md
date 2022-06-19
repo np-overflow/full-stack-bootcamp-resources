@@ -47,7 +47,7 @@ h1 {
 layout: cover
 ---
 
-# HTML, CSS, JS
+# Web fundamentals
 
 11.00am - 12.15pm
 
@@ -126,6 +126,25 @@ sequenceDiagram
 </v-click>
 
 ---
+layout: center
+---
+
+# HTML, CSS, JS
+
+<style>
+h1 {
+  background-color: blueviolet;
+  background-image: linear-gradient(45deg, blueviolet 20%, red 80%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
 layout: two-cols
 ---
 
@@ -133,7 +152,8 @@ layout: two-cols
 
 * HTML: Hypertext Markup Language
   * Provides the content of your webpage
-
+  * Written in XML (Extensible Markup Language)
+  
 * CSS: Cascading Style Sheets
   * Provides styling of your webpage
 
@@ -151,137 +171,68 @@ layout: two-cols
 </div>
 
 ---
-layout: two-cols
+src: ./html.md
 ---
 
-# HTML tags
-
-* Specify what kind of elements are shown
-* Many types of elements you can choose from [^1]
-  * Headings
-  * Buttons
-  * Input fields
-  * Cat 🙀
-
-::right::
-
-
-<div class="flex flex-col h-full justify-center">
-
-##### Headings
-
-<RunnerWebsite code="<h1>hello</h1><h2>Smaller hello</h2>">
-
-```html {all|1,3|4,6|all}
-<h1>
-  hello
-</h1>
-<h2>
-  Smaller hello
-</h2>
-```
-
-</RunnerWebsite>
-
-<br/>
-
-##### Buttons
-
-<RunnerWebsite code="<button>BUTTOTOOTTN</button>">
-
-```html {all|1,3}
-<button>
-  BUTTOTOOTTN
-</button>
-```
-
-</RunnerWebsite>
-</div>
-
-[^1]: [List of HTML tags](https://www.w3schools.com/TAGs/)
-
 ---
-layout: two-cols
+src: ./js-part-1.md
 ---
 
-<div class="flex flex-col items-between">
-
-# HTML attributes
-
-* Customize elements [^1]
-  * `style`
-  * `type`
-  * etc
-
-<br />
-
-##### Inputs
-
-<RunnerWebsite code='<div style="padding: 0.3em;"><input type="submit"/><br/><input type="date"/><br/><input type="checkbox"/></div>'>
-
-```html {all|2,4,6|all}
-<input 
-  type="submit" />
-<input 
-  type="datetime" />
-<input 
-  type="checkbox" />
-```
-
-</RunnerWebsite>
-</div>
-
-::right::
-
-<div class="flex flex-col h-full ml-5 justify-center">
-
-##### Headings
-
-<RunnerWebsite code='<h1 style="color: red;">hello</h1><h2 style="color: blue;">Smaller hello</h2>'>
-
-```html {all|2,6|all}
-<h1 
-  style="color: red;">
-  hello
-</h1>
-<h2 
-  style="color: blue;">
-  Smaller hello
-</h2>
-```
-
-</RunnerWebsite>
-
-<br/>
-
-##### Buttons
-
-<RunnerWebsite code='<button style="background: red;">BUTTOTOOTTN</button>'>
-
-```html {all|2|all}
-<button 
-  style="background: red;">
-  BUTTOTOOTTN
-</button>
-```
-
-</RunnerWebsite>
-</div>
-
-[^1]: [More about attributes](https://www.w3schools.com/htmL/html_attributes.asp)
-
-
+---
+layout: cover
 ---
 
-# CSS
+# LONCH 🐔
 
-* Style elements and make them look ✨ fancy ✨💄💁 [^1]
+12.15pm - 1.15pm
 
-* We've already used CSS in the `style` attribute previously
+<style>
+h1 {
+  background-color: orange;
+  background-image: linear-gradient(45deg, orange 10%, orangered 50%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
 
-[^1]: [More about CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+---
+layout: cover
+---
 
-<!-- TODO: More elaboration? Not sure hmm -->
+# Web fundamentals + Vue
+
+1.15pm - 4.30pm
+
+<style>
+h1 {
+  background-color: green;
+  background-image: -webkit-linear-gradient(315deg,#42d392 25%,#647eff);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+src: ./js-part-2.md
+---
+
+---
+layout: center
+---
+
+# An HTML file
+
+---
+src: ./html-file-structure.md
+---
 
 ---
 layout: center
@@ -290,556 +241,26 @@ layout: center
 # 5 minutes break
 
 ---
-layout: two-cols
----
-
-# Javascript
-
-* Actually called ECMAScript
-* High level language
-
-*** 
-
-* Used on servers and browsers
-* Very speed 🚄
-
----
-
-# Functions
-
-* Blocks of code that does something
-* Like mathematical functions, it has 
-  * **Input** (parameters/arguments) 
-  * **Output** (return value)
-
-```mermaid
-flowchart LR
-    Input -- function --> Output
-```
-
-```javascript
-function <name>(<arguments>) {
-  return <return value>
-}
-```
-
----
-
-# Functions
-
-<Runner code="console.log(3)">
-
-```javascript
-function add(x, y) {
-  return x + y
-}
-
-add(1, 2)
-```
-
-</Runner>
-
-<br/>
-
-<Runner code="console.log(1)">
-
-```javascript
-function minus(x, y) {
-  return x - y
-}
-
-add(5, 4)
-```
-
-</Runner>
-
----
-
-# Showing output
-
-* Show output/print using `console`
-* Multiple logging levels
-  * `log`
-  * `warn`
-  * `error`
-
-<Runner code="console.log('This will show in the console!'); console.warn('I like orange'); console.error('This will be red')">
-
-```javascript
-console.log('This will show in the console!')
-console.warn('I like orange')
-console.error('This will be red')
-```
-
-</Runner>
-
----
-
-# Comments
-
-* Comments are pieces of code that isn't ran
-* You are recommended to add comments to provide helpful information to other people editing the code
-
-Single line comment
-```javascript
-console.log('This will show in the console!'); // This is a comment
-```
-
-Multi-line comment (start with `/**` and end with `*/`. You can also add extra `*`s to make it look nice)
-```javascript
-/**
- * The asterisk on this line is just to make it look nice
- You could remove it if you want, but now it looks less nice :<
- */
-console.log('This will show in the console!'); 
-```
-
----
-
-# Variables
-
-* Data is stored in variables, the creation of a variable is called a declaration
-  * Different declarations have different accessibility
-* There are three ways to declare variables [^1]
-
-`(var|let|const) <name of variable> = <value>`
-
-| Keyword | Accessibility                                   | Should I use this?     |
-| ------- | ----------------------------------------------- | ---------------------- |
-| `var`   | Within the function it's declared in            | Avoid unless necessary |
-| `let`   | Within the closest curly braces --- `{` and `}` | ✅                      |
-| `const` | Creates a constant variable                     | ✅                      |
-
-[^1]: [Variable declarations](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables#a_note_about_var)
-
-<!-- There are key differences between `var` and `const`, but we will not go through them all today. Let's just go through the key differences -->
-
----
-
-# Variables
-
-##### `var`
-
-Available before declaration as `undefined`
-
-<Runner code="console.log(undefined); console.log('I am everywhere!')">
-
-```javascript
-console.log(everywhere)
-var everywhere = 'I am everywhere!'
-console.log(everywhere)
-```
-
-</Runner>
-
-
----
-
-# Variables 
-
-##### `let`
-
-Not available before declaration
-
-<Runner code="console.error(`Uncaught ReferenceError: Cannot access 'everywhere' before initialization`)">
-
-```javascript
-console.log(everywhere)
-let everywhere = 'I am everywhere!'
-console.log(everywhere)
-```
-
-</Runner>
-
-But this works!
-
-<Runner code="console.log(`I am everywhere!`)">
-
-```javascript
-let everywhere = 'I am everywhere!'
-console.log(everywhere)
-```
-
-</Runner>
-
-
----
-
-# Variables
-
-##### `const`
-
-Used for variables that **shouldn't be updated**
-
-<Runner code="console.log('T0411111B')">
-
-```javascript
-const MY_NRIC = 'T0411111B'
-console.log(everywhere)
-```
-
-</Runner>
-
----
-
-# Types of variables
-
-We used one type of variable just now, a `String`. but there are others!
-
-* Different types can store different variations of data, to make your life easier
-
-| Type      | Usage               |
-| --------- | ------------------- |
-| `String`  | Used for text       |
-| `Number`  | Used for numbers    |
-| `Boolean` | Used for true/false |
-| `Object`  | Used for objects    |
-| `Array`   | Used for arrays     |
-
----
-
-# Objects
-
-* A key-value pair
-* Declare using curly braces 
-  * `{` and `}`
-
-```javascript
-const jimmy = {
-  name: 'Jimmy',
-  age: 21,
-  isCool: true,
-  friends: ['John', 'Jane', 'Jim'],
-}
-
-```
-
-To access the values in the object use the dot notation, or the bracket notation
-
-<Runner code="console.log('Jimmy'); console.log(21);">
-
-```javascript
-console.log(jimmy.name) // Dot notation
-console.log(jimmy['age']) // Bracket notation
-```
-
-</Runner>
-
----
-
-# Array
-
-* A list of values
-* Declare using square brackets
-  * `[` and `]`
-
-Jimmy has many friends, we want to store the names of his friends, so we use an `Array`
-
-```javascript
-const friends = ['John', 'Jane', 'Jim']
-```
-
-<v-click>
-
-To access the values in the array, we have to get the *index* of the item
-
-An *index* refers to the position of the item in the array. 
-
-Indexes start from 0.
-
-<Runner code="console.log('Jane')">
-
-```javascript
-console.log(friends[1]))
-```
-
-</Runner>
-</v-click>
-
----
-
-# Destructuring
-
-* Destructuring is another way to extract values from objects and arrays
-
-This is array destructuring
-
-<Runner code="console.log('Jane')">
-
-```javascript {all|2}
-const friends = ['John', 'Jane', 'Jim']
-const [firstFriend, secondFriend, thirdFriend] = friends
-console.log(firstFriend)
-```
-
-</Runner>
-
-This is object destructuring
-
-<Runner code="console.log(21)">
-
-```javascript {all|2}
-const jimmy = { name: 'Jimmy', age: 21, isCool: true, friends: ['John', 'Jane', 'Jim'] }
-const { age } = jimmy
-```
-
-</Runner>
-
----
-
-# Control flow
-
-* Customize the behavior of your program based on a condition
-* There are three keywords to do this
-  * `if`
-  * `else`
-  * `else if`
-
-```javascript
-if (<condition 1>) {
-  // Code to execute if condition 1 is true
-} 
-else if (<condition 2>) { 
-  // Code to execute if condition 1 is false and condition 2 is true
-}
-else {
-  // Code to execute if condition 1 and condition 2 are both false
-}
-```
-
----
-
-# Comparators
-
-* Sometimes we want to compare different values
-  * For example, if variable `x` is greater than `y`
-
-| Comparator | Explanation              | Usage    |
-| ---------- | ------------------------ | -------- |
-| `>`        | Greater than             | `x > y`  |
-| `<`        | Less than                | `x < y`  |
-| `>=`       | Greater than or equal to | `x >= y` |
-| `<=`       | Less than or equal to    | `x <= y` |
-| `==`       | Equal to                 | `x == y` |
-| `!=`       | Not equal to             | `x != y` |
-
-<style>
-  code {
-    font-family: monospace !important;
-  }
-</style>
-
----
-
-# Advanced comparators
-
-* Javascript is weird sometimes, so we have to use a little bit of extra code to make some stuff work
-
-For example
-
-<Runner code="console.log(2 == '2')">
-
-```javascript
-console.log(2 == "2")
-```
-
-</Runner>
-
-But `2` is not equals to `"2"`! One is a `Number` and the other is a `String`
-
-To enforce checking of types, we add one more `=`, like so: `===` and `!==`
-
-<Runner code="console.log(2 === '2')">
-
-```javascript
-console.log(2 === "2")
-```
-
-</Runner>
-
-<style>
-  code {
-    font-family: monospace !important;
-  }
-</style>
-
----
-
-# Loops
-
-Loops are used to do things that are repetitive, like printing out something `10` times
-
-There are two ways:
-* A `for` loop
-* A `while` loop
-
-`for (<initialization>; <condition>; <final expression>) {}`
-
-<Runner code="for (let idx = 0; idx < 10; idx++) { console.log(idx) }">
-
-```javascript
-for (let idx = 0; idx < 10; idx++) {
-  console.log(idx)
-}
-```
-
-</Runner>
-
----
-
-# Loops
-
-##### `while`
-
-This is the same code as a while loop
-
-`while (<condition>) {}`
-
-<Runner code="let idx = 0; while (idx < 10) { console.log(idx); idx++ }">
-
-```javascript
-let idx = 0
-while (idx < 10) {
-  console.log(idx)
-  idx++
-}
-```
-
-</Runner>
-
----
-
-# Error handling
-
-* Sometimes code gives us errors, and we need to handle them
-  * For example, if we try to access a variable that doesn't exist
-
-* To handle errors, we use a `try` block and a `catch` block
-  * `try` is used to try something
-  * `catch` is used to handle the error
-
----
-
-# Error handling
-
-Let's take the example from just now
-
-<Runner code="console.error(`Uncaught ReferenceError: Cannot access 'everywhere' before initialization`)">
-
-```javascript
-console.log(everywhere)
-let everywhere = 'I am everywhere!'
-console.log(everywhere)
-```
-
-</Runner>
-
-Catching the error:
-
-<Runner code="console.error('There was an error, but I caught it!')">
-
-```javascript
-try {
-  console.log(everywhere)
-  let everywhere = 'I am everywhere!'
-  console.log(everywhere)
-} 
-catch (error) {
-  console.error('There was an error, but I caught it!')
-}
-```
-
-</Runner>
-
----
 layout: center
 ---
 
-# 10 minutes break
+# Vue
 
----
-layout: two-cols
----
-
-# Concurrency
-
-* Some code we write takes a long time to run
-  * For example, reading a large file, or doing some big calculations
-* We want to *run* that code in the **background**, so we can keep our browser responsive
-  * In the meantime, the program can also do other stuff 🍉🍇
-
-***
-
-* Concurrent code is also known as **<u>asynchronous</u>** code
-* Which means inversely, non-concurrent code is known as <u>synchronous</u> code
-
-::right::
-
-```mermaid 
-sequenceDiagram
-    participant P as Program
-    participant B as Background
-    participant F as Friend
-    P--)B: Do som work for me!
-    activate B
-    P--)F: Gib food
-    activate F
-    B->>P: I'm done!
-    deactivate B
-    Note over P: Stonks
-    F->>P: Here 🍉🍇
-    deactivate F
-    Note over P: Nom 
-```
-
----
-
-# Concurrency
-
-* Concurrent code is usually ran in a function [^1]
-* To make a function concurrent, we add the `async` keyword
-* We use the `await` keyword to wait for a task to finish
-
-<Runner code="sleep(10000); console.log('Done with assignment!')">
-
-```javascript
-async function startAssignment() {  
-  sleep('10 seconds') // Simulate falling asleep
-  console.log('Done with assignment!')
+<style>
+h1 {
+  background-color: green;
+  background-image: linear-gradient(315deg,#42d392 15%, #647eff);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
-startAssignment()
-```
-
-</Runner>
-
-Wait, our assignment finished instantly!? That's because we didn't use `await`
-
-Our task runs in the background, and the code continues to run without **awaiting** for it
-
-[^1]: [In depth `async`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+</style>
 
 ---
-
-# Concurrency
-
-Let's `await` our code and make the duration shorter
-
-<Runner code="await sleep(5000); console.log('Done with assignment!')">
-
-```javascript
-async function startAssignment() {  
-  await sleep('5 seconds') // Simulate falling asleep
-  console.log('Done with assignment!')
-}
-startAssignment()
-```
-
-</Runner>
-
-Now we actually take time to do the assignment!
-
----
-src: ./html-structure.md
+src: ./vue.md
 ---
 
 # Installation
