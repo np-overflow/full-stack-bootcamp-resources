@@ -4,6 +4,7 @@ export function createSrcDoc(script: string, body?: string) {
     '<html>',
     '  <head>',
     '    <script>',
+    '      function sleep(ms) { return new Promise((resolve) => setTimeout(resolve, ms)) }',
     "      ['log', 'warn', 'error'].forEach((level) => {",
     '        const original = console[level];',
     '        console[level] = (...args) => {',

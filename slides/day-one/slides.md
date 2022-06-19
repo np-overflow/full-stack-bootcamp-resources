@@ -375,18 +375,40 @@ console.error('This will be red')
 
 ---
 
+# Comments
+
+* Comments are pieces of code that isn't ran
+* You are recommended to add comments to provide helpful information to other people editing the code
+
+Single line comment
+```javascript
+console.log('This will show in the console!'); // This is a comment
+```
+
+Multi-line comment (start with `/**` and end with `*/`. You can also add extra `*`s to make it look nice)
+```javascript
+/**
+ * The asterisk on this line is just to make it look nice
+ You could remove it if you want, but now it looks less nice :<
+ */
+console.log('This will show in the console!'); 
+```
+
+---
+
 # Variables
 
-* Data is stored in variables
+* Data is stored in variables, the creation of a variable is called a declaration
+  * Different declarations have different accessibility
 * There are three ways to declare variables [^1]
 
 `(var|let|const) <name of variable> = <value>`
 
-| Keyword | Explanation                            | Should I use this?     |
-| ------- | -------------------------------------- | ---------------------- |
-| `var`   | Creates a variable in a function scope | Avoid unless necessary |
-| `let`   | Creates a variable in the block scope  | ✅                      |
-| `const` | Creates a constant variable            | ✅                      |
+| Keyword | Accessibility                                   | Should I use this?     |
+| ------- | ----------------------------------------------- | ---------------------- |
+| `var`   | Within the function it's declared in            | Avoid unless necessary |
+| `let`   | Within the closest curly braces --- `{` and `}` | ✅                      |
+| `const` | Creates a constant variable                     | ✅                      |
 
 [^1]: [Variable declarations](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables#a_note_about_var)
 
@@ -533,6 +555,35 @@ console.log(friends[1]))
 
 </Runner>
 </v-click>
+
+---
+
+# Destructuring
+
+* Destructuring is another way to extract values from objects and arrays
+
+This is array destructuring
+
+<Runner code="console.log('Jane')">
+
+```javascript {all|2}
+const friends = ['John', 'Jane', 'Jim']
+const [firstFriend, secondFriend, thirdFriend] = friends
+console.log(firstFriend)
+```
+
+</Runner>
+
+This is object destructuring
+
+<Runner code="console.log(21)">
+
+```javascript {all|2}
+const jimmy = { name: 'Jimmy', age: 21, isCool: true, friends: ['John', 'Jane', 'Jim'] }
+const { age } = jimmy
+```
+
+</Runner>
 
 ---
 
@@ -707,10 +758,85 @@ layout: center
 # 10 minutes break
 
 ---
+layout: two-cols
+---
 
 # Concurrency
 
-H e p l
+* Some code we write takes a long time to run
+  * For example, reading a large file, or doing some big calculations
+* We want to *run* that code in the **background**, so we can keep our browser responsive
+  * In the meantime, the program can also do other stuff 🍉🍇
+
+***
+
+* Concurrent code is also known as **<u>asynchronous</u>** code
+* Which means inversely, non-concurrent code is known as <u>synchronous</u> code
+
+::right::
+
+```mermaid 
+sequenceDiagram
+    participant P as Program
+    participant B as Background
+    participant F as Friend
+    P--)B: Do som work for me!
+    activate B
+    P--)F: Gib food
+    activate F
+    B->>P: I'm done!
+    deactivate B
+    Note over P: Stonks
+    F->>P: Here 🍉🍇
+    deactivate F
+    Note over P: Nom 
+```
+
+---
+
+# Concurrency
+
+* Concurrent code is usually ran in a function [^1]
+* To make a function concurrent, we add the `async` keyword
+* We use the `await` keyword to wait for a task to finish
+
+<Runner code="sleep(10000); console.log('Done with assignment!')">
+
+```javascript
+async function startAssignment() {  
+  sleep('10 seconds') // Simulate falling asleep
+  console.log('Done with assignment!')
+}
+startAssignment()
+```
+
+</Runner>
+
+Wait, our assignment finished instantly!? That's because we didn't use `await`
+
+Our task runs in the background, and the code continues to run without **awaiting** for it
+
+[^1]: [In depth `async`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+
+---
+
+# Concurrency
+
+Let's `await` our code and make the duration shorter
+
+<Runner code="await sleep(5000); console.log('Done with assignment!')">
+
+```javascript
+async function startAssignment() {  
+  await sleep('5 seconds') // Simulate falling asleep
+  console.log('Done with assignment!')
+}
+startAssignment()
+```
+
+</Runner>
+
+Now we actually take time to do the assignment!
 
 ---
 src: ./html-structure.md
