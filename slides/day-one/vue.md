@@ -157,83 +157,6 @@ const App = {
 ```
 
 ---
-layout: two-cols
----
-
-# Event handlers
-
-* HTML elements produce **events** that we can *listen* to
-  * For example, when a button is clicked, the `click` event fires
-
-* When we subscribe to an event, we provide some JS that's ran when they're triggerred
-  * Also known as an event handler
-
-::right::
-
-`{ setup }`
-```javascript
-return {
-  clicked() {
-    // do something
-  }
-}
-```
-
-`{ template }`
-```html {all|1}
-<button @click="clicked">
-  Click me!
-</button>
-```
-
----
-layout: two-cols
----
-
-# Vue directives
-
-* Additional attributes you can add to an element
-* These attributes modify the behavior of the element
-* Default Vue directives are prefixed with `v-` [^1]
-
-::right::
-
-`{ setup }`
-```javascript
-return {
-  showMessage: true
-}
-```
-
-`{ template }`
-```html
-<div v-if="showMessage === true">
-  I will only show if `message` is "Hello, world!"
-</div>
-```
-
-[^1]: [Default directives](https://vuejs.org/api/built-in-directives.html#built-in-directives)
-
----
-layout: center
----
-
-# Quiz
-
----
-
-# Vue reactivity
-
-* Reactivity is used to update content shown on the screen
-* For example, updating a header as the user types into an `input`
-
-***
-
-* Vue has two ways to create reactive values
-  * `ref`: use for primitive values
-  * `reactive`: use for objects
-
----
 layout: center
 ---
 
@@ -317,6 +240,186 @@ layout: two-cols
 <script>
   import { createApp } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
   const app = createApp({
+    template: `
+      <h1>This is the root component!</h1>
+    `
   })
 </script>
 ```
+
+---
+layout: two-cols
+---
+
+# Event handlers
+
+* HTML elements produce **events** that we can *listen* to
+  * For example, when a button is clicked, the `click` event fires
+
+* When we subscribe to an event, we provide some JS that's ran when they're triggerred
+  * Also known as an event handler
+
+::right::
+
+`{ setup }`
+```javascript
+return {
+  clicked() {
+    // do something
+  }
+}
+```
+
+`{ template }`
+```html {all|1}
+<button @click="clicked">
+  Click me!
+</button>
+```
+
+---
+layout: two-cols
+---
+
+# Vue directives
+
+* Additional attributes you can add to an element
+* These attributes modify the behavior of the element
+* Default Vue directives are prefixed with `v-` [^1]
+
+::right::
+
+`{ setup }`
+```javascript
+return {
+  showMessage: true
+}
+```
+
+`{ template }`
+```html
+<div v-if="showMessage === true">
+  I will only show if `message` is "Hello, world!"
+</div>
+```
+
+[^1]: [Default directives](https://vuejs.org/api/built-in-directives.html#built-in-directives)
+
+---
+layout: center
+---
+
+# Quiz
+
+---
+
+# Vue reactivity
+
+* Reactivity is used to update content shown on the screen
+* For example, updating a header as the user types into an `input`
+* Vue has two ways to create reactive values
+  * `ref`: use for primitive values
+  * `reactive`: use for objects
+* Any reactive values has to be created in the `setup` function
+  
+```html {all|2}
+<script>
+  import { createApp, ref, reactive } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
+  const app = createApp({
+    template: `
+      <h1>This is the root component!</h1>
+    `
+  })
+</script>
+```
+
+---
+
+# Vue reactivity
+
+##### Using`ref`
+
+<br/>
+
+```html {all|6|10|11|all}
+<script>
+  import { createApp, ref, reactive } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
+  const app = createApp({
+    setup() {
+      const msg = ref('Hello, world!')
+      return {
+        msg
+      }
+    },
+    template: `
+      <h1>{{ msg }}</h1>
+      <input v-model="msg" />   `
+  })
+</script>
+```
+
+---
+
+# Vue reactivity
+
+##### Using `reactive`
+
+<br/>
+
+```html {all|5-7|13-14|all}
+<script>
+  import { createApp, ref, reactive } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
+  const app = createApp({
+    setup() {
+      const state = reactive({
+        msg: 'Hello, world!'
+      })
+      return {
+        state,
+      }
+    },
+    template: `
+      <h1>{{ state.msg }}</h1>
+      <input v-model="state.msg" />   `
+  })
+</script>
+```
+
+---
+
+# Vue computed values
+
+* Computed values are reactive values **derived** from other reactive values
+
+```html {all|5-7|13-14|all}
+<script>
+  import { createApp, ref, reactive } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
+  const app = createApp({
+    setup() {
+      const msg = ref('Hello, world!')
+      const msgLength = computed(function() {
+        return msg.value.length
+      })
+      return {
+        msg,
+        msgLength
+      }
+    },
+    template: `
+      <h1>{{ msgLength }}</h1>
+      <input v-model="state.msg" />   `
+  })
+</script>
+```
+
+---
+
+# Vue watchers
+
+* Watchers are used to watch for changes in a reactive value
+
+`watch`, `watchEffect`
+
+---
+
+# Vue

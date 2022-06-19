@@ -263,6 +263,43 @@ h1 {
 src: ./vue.md
 ---
 
+---
+layout: center
+---
+
+# 10 minutes break
+
+---
+layout: cover
+---
+
+# Practical time
+
+4.30pm - 5.30pm
+
+<style>
+h1 {
+  background-color: orange;
+  background-image: linear-gradient(45deg, orange 10%, orangered 50%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+
+# Practical time
+
+* Build a to do list
+* **Bonus 🏆**: Add funny styles
+* **Bonus 🏆**: Add grouping for your to do items
+
+---
+
 # Installation
 
 * NodeJS
