@@ -14,6 +14,7 @@
 
 * To make things simple, let's use a library called UnoCSS!
 * UnoCSS provides you "atomic" CSS styles you can use on elements directly
+* Play with the interactive demo [here](https://uno.antfu.me)
 
 ```html {all|4}
 <!DOCTYPE html>
@@ -27,8 +28,3 @@
 </html>
 ```
 
----
-
-# UnoCSS
-
-* Play with the interactive demo [here](https://uno.antfu.me)
