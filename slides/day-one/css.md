@@ -8,3 +8,27 @@
 
 <!-- TODO: More elaboration? Not sure hmm -->
 
+---
+
+# CSS
+
+* To make things simple, let's use a library called UnoCSS!
+* UnoCSS provides you "atomic" CSS styles you can use on elements directly
+
+```html {all|4}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime@0.39.3/full.global.js"></script>
+  </head>
+  <body>
+    <h1>HELLO!</h1>
+  </body>
+</html>
+```
+
+---
+
+# UnoCSS
+
+* Play with the interactive demo [here](https://uno.antfu.me)

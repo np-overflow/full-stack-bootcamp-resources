@@ -270,6 +270,29 @@ layout: center
 # 10 minutes break
 
 ---
+layout: center
+---
+
+# CSS
+
+<style>
+h1 {
+  background-color: red;
+  background-image: linear-gradient(315deg, red 15%, orange);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+src: ./css.md
+---
+
+---
 layout: cover
 ---
 
@@ -293,6 +316,8 @@ h1 {
 ---
 
 # Practical time
+
+4.30pm - 5.15pm
 
 * Build a to do list
 * **Bonus 🏆**: Add funny styles

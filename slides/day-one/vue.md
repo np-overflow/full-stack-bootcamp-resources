@@ -341,7 +341,7 @@ layout: center
 
 <br/>
 
-```html {all|6|10|11|all}
+```html {all|5|6-8|11|12|all}
 <script>
   import { createApp, ref, reactive } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
   const app = createApp({
@@ -407,7 +407,7 @@ layout: center
     },
     template: `
       <h1>{{ msgLength }}</h1>
-      <input v-model="state.msg" />   `
+      <input v-model="msg" />   `
   })
 </script>
 ```
@@ -418,8 +418,50 @@ layout: center
 
 * Watchers are used to watch for changes in a reactive value
 
-`watch`, `watchEffect`
+`watch`, specify what you want to watch, and it'll only run when the value changes
+
+```html {all|5|5-7|all}
+<script>
+  import { createApp, ref, watch } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
+  const app = createApp({
+    setup() {
+      const msg = ref('Hello, world!')
+      watch(msg, function(newValue, oldValue) {
+        console.log(`The message changed from ${oldValue} to ${newValue}`)
+      })
+      return {
+        msg,
+      }
+    },
+    template: `
+      <h1>{{ msg}}</h1>
+      <input v-model="msg" />   `
+  })
+</script>
+```
 
 ---
 
-# Vue
+# Vue watchers
+
+`watchEffect`, runs whenever any reactive value used is changed
+
+```html {all|5|5-7|all}
+<script>
+  import { createApp, ref, watchEffect } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
+  const app = createApp({
+    setup() {
+      const msg = ref('Hello, world!')
+      watchEffect(msg, function() {
+        console.log(`The message changed! The new value is ${msg.value}`)
+      })
+      return {
+        msg,
+      }
+    },
+    template: `
+      <h1>{{ msg }}</h1>
+      <input v-model="msg" />   `
+  })
+</script>
+```
