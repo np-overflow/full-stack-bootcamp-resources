@@ -55,7 +55,7 @@ function minus(x, y) {
   return x - y
 }
 
-add(5, 4)
+minus(5, 4)
 ```
 
 </Runner>
@@ -277,7 +277,7 @@ layout: center
 
 This is array destructuring
 
-<Runner code="console.log('Jane')">
+<Runner code="console.log('John')">
 
 ```javascript {all|2}
 const friends = ['John', 'Jane', 'Jim']
