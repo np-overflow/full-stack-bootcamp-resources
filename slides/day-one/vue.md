@@ -244,18 +244,26 @@ layout: two-cols
 
 * Create a Vue application with the `createApp` function
 * A Vue application needs a root component
+* It also needs to know where to "show" out application on the page
+  * We use the `mount` function for that
 
 ```html
-
 <script>
     import {createApp} from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
 
     const app = createApp({
         template: `
-      <h1>This is the root component!</h1>
-    `
+          <h1>This is the root component!</h1>
+        `
     })
+    
+    app.mount('#app') // <- this will tell Vue to show our application at any element with id 'app'
 </script>
+```
+```html
+<body>
+    <div id="app"></div> <!-- Create a new div here with id "app"-->
+</body>
 ```
 
 ---
