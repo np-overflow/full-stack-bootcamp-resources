@@ -9,7 +9,7 @@ layout: two-cols
 * Performant
   * Truly reactive
   * Compiler optimized
-  * Rarely requires manual optimization 
+  * Rarely requires manual optimization
 * No, definitely not React
   * Oh look, there's no ~~`useFootGun`~~ `useEffect`*
 
@@ -60,8 +60,9 @@ layout: two-cols
 * Template is the usual HTML content
 
 ::right::
-  
+
 `index.js`
+
 ```javascript {all|2-6}
 const App = {
   template: `
@@ -86,8 +87,9 @@ layout: two-cols
 * Use `{{` and `}}` to interpolate (fancy word for embed) variables
 
 ::right::
-  
+
 `index.js`
+
 ```javascript {4}
 const App = {
   template: `
@@ -113,8 +115,9 @@ layout: two-cols
 * `setup() {}` creates a property `setup` which is a function
 
 ::right::
-  
+
 `index.js`
+
 ```javascript {7,11}
 const App = {
   template: `
@@ -139,8 +142,9 @@ layout: two-cols
 * Object returned from `setup` function can be used in `template`
 
 ::right::
-  
+
 `index.js`
+
 ```javascript {4,9}
 const App = {
   template: `
@@ -175,18 +179,22 @@ layout: two-cols
 # Demo
 
 1. Install [Visual Studio <u>**Code**</u>](https://code.visualstudio.com/)
-    * This is different from **Visual Studio**
+
+* This is different from **Visual Studio**
 
 <v-clicks>
 
 2. Create a new file called `index.html`
-    * From VSCode: `File` -> `New File`
+
+* From VSCode: `File` -> `New File`
 
 3. Paste in the boilerplate on the right
-    * We went through this earlier
+
+* We went through this earlier
 
 4. Open the file in your browser
-    * From File Explorer: Double click the file
+
+* From File Explorer: Double click the file
 
 </v-clicks>
 
@@ -194,16 +202,17 @@ layout: two-cols
 ::right::
 
 `index.html`
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <script></script>
     <style></style>
-  </head>
-  <body>
-    <h1>HELLO!</h1>
-  </body>
+</head>
+<body>
+<h1>HELLO!</h1>
+</body>
 </html>
 ```
 
@@ -231,19 +240,21 @@ layout: two-cols
 
 ---
 
-# Vue 
+# Vue
 
 * Create a Vue application with the `createApp` function
 * A Vue application needs a root component
 
 ```html
+
 <script>
-  import { createApp } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
-  const app = createApp({
-    template: `
+    import {createApp} from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
+
+    const app = createApp({
+        template: `
       <h1>This is the root component!</h1>
     `
-  })
+    })
 </script>
 ```
 
@@ -262,15 +273,17 @@ layout: two-cols
 ::right::
 
 `{ setup }`
+
 ```javascript
 return {
-  clicked() {
-    // do something
-  }
+    clicked() {
+        // do something
+    }
 }
 ```
 
 `{ template }`
+
 ```html {all|1}
 <button @click="clicked">
   Click me!
@@ -290,16 +303,19 @@ layout: two-cols
 ::right::
 
 `{ setup }`
+
 ```javascript
 return {
-  showMessage: true
+    showMessage: true
 }
 ```
 
 `{ template }`
+
 ```html
+
 <div v-if="showMessage === true">
-  I will only show if `message` is "Hello, world!"
+    I will only show if `message` is "Hello, world!"
 </div>
 ```
 
@@ -321,7 +337,9 @@ layout: center
   * `ref`: use for primitive values
   * `reactive`: use for objects
 * Any reactive values has to be created in the `setup` function
-  
+
+First, import `ref` and `reactive`
+
 ```html {all|2}
 <script>
   import { createApp, ref, reactive } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
@@ -353,7 +371,8 @@ layout: center
     },
     template: `
       <h1>{{ msg }}</h1>
-      <input v-model="msg" />   `
+      <input v-model="msg" />   
+    `
   })
 </script>
 ```
@@ -389,7 +408,8 @@ layout: center
 
 # Vue computed values
 
-* Computed values are reactive values **derived** from other reactive values
+* Computed values are reactive values **derived** from other reactive values, their values update when the base reactive
+  values change
 
 ```html {all|5-7|13-14|all}
 <script>
@@ -418,16 +438,16 @@ layout: center
 
 * Watchers are used to watch for changes in a reactive value
 
-`watch`, specify what you want to watch, and it'll only run when the value changes
+`watch` --- specify what you want to watch, and it'll only run when the value changes
 
 ```html {all|5|5-7|all}
 <script>
-  import { createApp, ref, watch } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
+  import { createApp, ref, reactive, watch } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
   const app = createApp({
     setup() {
       const msg = ref('Hello, world!')
       watch(msg, function(newValue, oldValue) {
-        console.log(`The message changed from ${oldValue} to ${newValue}`)
+        console.log(`The message changed from ${oldValue} to ${newValue}`) 
       })
       return {
         msg,
@@ -435,7 +455,8 @@ layout: center
     },
     template: `
       <h1>{{ msg}}</h1>
-      <input v-model="msg" />   `
+      <input v-model="msg" />   
+    `
   })
 </script>
 ```
@@ -446,9 +467,11 @@ layout: center
 
 `watchEffect`, runs whenever any reactive value used is changed
 
+However, unlike `watch`, we do not have access to the previous value
+
 ```html {all|5|5-7|all}
 <script>
-  import { createApp, ref, watchEffect } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
+  import { createApp, ref, reactive, watchEffect } from 'https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.js'
   const app = createApp({
     setup() {
       const msg = ref('Hello, world!')
@@ -461,7 +484,8 @@ layout: center
     },
     template: `
       <h1>{{ msg }}</h1>
-      <input v-model="msg" />   `
+      <input v-model="msg" />   
+    `
   })
 </script>
 ```
