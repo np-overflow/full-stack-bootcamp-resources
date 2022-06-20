@@ -62,7 +62,8 @@ h1 {
 
 # Navigation
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+Hover on the bottom-left corner to see the navigation's controls
+panel, [learn more](https://sli.dev/guide/navigation.html)
 
 ### Keyboard Shortcuts
 
@@ -75,9 +76,9 @@ Hover on the bottom-left corner to see the navigation's controls panel, [learn m
 
 <!-- https://sli.dev/guide/animations.html#click-animations -->
 <img
-  v-click
-  class="opacity-50 -bottom-9 -left-7 w-80 absolute"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
+v-click
+class="opacity-50 -bottom-9 -left-7 w-80 absolute"
+src="https://sli.dev/assets/arrow-bottom-left.svg"
 />
 <p v-after class="opacity-30 transform bottom-23 left-45 -rotate-10 absolute">Here!</p>
 
@@ -92,16 +93,16 @@ Use code snippets and get the highlighting directly![^1]
 
 ```ts {all|2|1-6|9|all}
 interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
+    id: number
+    firstName: string
+    lastName: string
+    role: string
 }
 
 function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
+    const user = getUser(id)
+    const newUser = {...user, ...update}
+    saveUser(id, newUser)
 }
 ```
 
@@ -130,10 +131,12 @@ function updateUser(id: number, update: User) {
 
 You can use Vue components directly inside your slides.
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your
+custom components is also super easy.
 
 ```html
-<Counter :count="10" />
+
+<Counter :count="10"/>
 ```
 
 <!-- ./components/Counter.vue -->
@@ -145,7 +148,8 @@ Check out [the guides](https://sli.dev/builtin/components.html) for more.
 <div>
 
 ```html
-<Tweet id="1390115482657726468" />
+
+<Tweet id="1390115482657726468"/>
 ```
 
 <Tweet id="1390115482657726468" scale="0.65" />
@@ -160,7 +164,8 @@ class: px-20
 
 # Themes
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for
+tools. Switching between themes by just **one edit** in your frontmatter:
 
 <div grid="~ gap-2 cols-2" m="-t-2">
 
@@ -194,11 +199,12 @@ preload: false
 Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
 
 ```html
+
 <div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
+        v-motion
+        :initial="{ x: -80 }"
+        :enter="{ x: 0 }">
+    Slidev
 </div>
 ```
 
@@ -276,7 +282,7 @@ $$
 \begin{array}{c}
 
 \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+= \frac{4\pi}{c}\vec{\mathbf{j}} \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
 
 \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
 
@@ -357,4 +363,5 @@ class: text-center
 
 # Learn More
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev)
+· [Showcases](https://sli.dev/showcases.html)

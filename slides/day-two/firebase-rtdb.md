@@ -1,3 +1,12 @@
+# Firebase Realtime Database
+
+* Allows you to store and manipulate data as an `Object`
+* Highly flexible and scalable
+* Ability to subscribe to data changes globally
+
+Here's a demo using Firebase Realtime Database
+-> [https://bootcamp.np-overflow.club/examples/firebase/#/rtdb](https://bootcamp.np-overflow.club/examples/firebase/#/rtdb)
+
 ---
 layout: two-cols
 ---
@@ -65,16 +74,17 @@ layout: two-cols
 ::right::
 
 ```html
+
 <template>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"/>
     <table>
         <thead>
-            <tr>
-                <th>Name</th>
-                <th>Student ID</th>
-                <th>Course</th>
-                <th></th>
-            </tr>
+        <tr>
+            <th>Name</th>
+            <th>Student ID</th>
+            <th>Course</th>
+            <th></th>
+        </tr>
         </thead>
     </table>
 </template>
@@ -87,26 +97,26 @@ layout: two-cols
 # RTDB (Code - HTML) - Layout Table Row
 
 * Add `table row` 4 columns
-* Each row add 1 `textbox` (Name, StudentID, Course) 
+* Each row add 1 `textbox` (Name, StudentID, Course)
 * Last row add 2 `button` (Create, Fetch All)
 
 ::right::
 
 ```html
 <!-- <template> -->
-    <!-- thead -->
-        <tbody>
-            <tr>
-                <td><input v-model="name" placeholder="Student Name" ref="name" /></td>
-                <td><input v-model="id" placeholder="Student ID" ref="id" /></td>
-                <td><input v-model="course" placeholder="Student Course" ref="course" /></td>
-                <td>
-                    <button @click="create">Create</button>
-                    <button @click="retrieveAll">Fetch All</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<!-- thead -->
+<tbody>
+<tr>
+    <td><input v-model="name" placeholder="Student Name" ref="name"/></td>
+    <td><input v-model="id" placeholder="Student ID" ref="id"/></td>
+    <td><input v-model="course" placeholder="Student Course" ref="course"/></td>
+    <td>
+        <button @click="create">Create</button>
+        <button @click="retrieveAll">Fetch All</button>
+    </td>
+</tr>
+</tbody>
+</table>
 <!-- </template> -->
 
 ```
@@ -127,47 +137,47 @@ layout: two-cols
 ```html
 
 <!-- <template> -->
-    <!-- ... -->
-        <!-- <tbody> -->
-            <!-- <tr>...</tr> -->
-            <tr v-for="student in studentList">
-                <td>
-                    <input 
-                        :ref="student['id'] + '-name'" 
-                        :value="student['name']"
-                        v-bind:disabled="enabledId !== student['id']" />
-                </td>
-                <td>
-                    <input 
-                        :ref="student['id'] + '-id'" 
-                        :value="student['id']"
-                        v-bind:disabled="enabledId !== student['id']" />
-                </td>
-                <td>
-                    <input 
-                        :ref="student['id'] + '-course'" 
-                        :value="student['course']"
-                        v-bind:disabled="enabledId !== student['id']" />
-                </td>
-                <td>
-                    <button 
-                        class="fa fa-floppy-o" 
-                        @click="updateById(student['id'])"
-                        v-bind:disabled="enabledId !== student['id']"></button>
+<!-- ... -->
+<!-- <tbody> -->
+<!-- <tr>...</tr> -->
+<tr v-for="student in studentList">
+    <td>
+        <input
+                :ref="student['id'] + '-name'"
+                :value="student['name']"
+                v-bind:disabled="enabledId !== student['id']"/>
+    </td>
+    <td>
+        <input
+                :ref="student['id'] + '-id'"
+                :value="student['id']"
+                v-bind:disabled="enabledId !== student['id']"/>
+    </td>
+    <td>
+        <input
+                :ref="student['id'] + '-course'"
+                :value="student['course']"
+                v-bind:disabled="enabledId !== student['id']"/>
+    </td>
+    <td>
+        <button
+                class="fa fa-floppy-o"
+                @click="updateById(student['id'])"
+                v-bind:disabled="enabledId !== student['id']"></button>
 
-                    <button 
-                        class="fa fa-pencil-square-o" 
-                        @click="enableEdit(student['id'])"
-                        v-bind:disabled="enabledId === student['id']"></button>
+        <button
+                class="fa fa-pencil-square-o"
+                @click="enableEdit(student['id'])"
+                v-bind:disabled="enabledId === student['id']"></button>
 
-                    <button 
-                        class="fa fa-trash-o" 
-                        @click="deleteById(student['id'])"
-                        v-bind:disabled="enabledId === student['id']"></button>
-                </td>
-            </tr>
-        <!-- </tbody> -->
-    <!-- </table> -->
+        <button
+                class="fa fa-trash-o"
+                @click="deleteById(student['id'])"
+                v-bind:disabled="enabledId === student['id']"></button>
+    </td>
+</tr>
+<!-- </tbody> -->
+<!-- </table> -->
 <!-- </template> -->
 ```
 
@@ -183,14 +193,15 @@ layout: two-cols
 
 ```css
 /* <style scoped> */
-    table {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
-    }
+table {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
 /* </style> */
 ```
 
@@ -208,7 +219,7 @@ layout: two-cols
 
 ```javascript
 // <script>
-import { getDatabase, ref, set } from "firebase/database";
+import {getDatabase, ref, set} from "firebase/database";
 
 const database = getDatabase();
 
@@ -258,7 +269,8 @@ export default {
         }
     },
     methods: {
-        create: function () { /** ... */},
+        create: function () { /** ... */
+        },
 
         retrieveAll: function () {
             onValue(ref(database, 'student'), (snapshot) => {
@@ -282,15 +294,18 @@ layout: two-cols
 
 ```javascript
 // <script>
-import { /** ..., set */, remove } from "firebase/database";
+import { /** ..., set */, remove} from "firebase/database";
 
 export default {
-    data() {/** ... */},
+    data() {/** ... */
+    },
 
     methods: {
-        create: function () {/** ... */},
+        create: function () {/** ... */
+        },
 
-        retrieveAll: function () {/** ... */},
+        retrieveAll: function () {/** ... */
+        },
 
         deleteById: function (id) {
             remove(ref(database, `student/${id}`));
@@ -319,11 +334,14 @@ export default {
         }
     },
     methods: {
-        create: function () {/** ... */},
+        create: function () {/** ... */
+        },
 
-        retrieveAll: function () {/** ... */},
+        retrieveAll: function () {/** ... */
+        },
 
-        deleteById: function (id) {/** ... */},
+        deleteById: function (id) {/** ... */
+        },
 
         enableEdit: function (id) {
             this.enabledId = id;
@@ -346,11 +364,14 @@ layout: two-cols
 
 ```javascript
 export default {
-    data() {/** ... */},
+    data() {/** ... */
+    },
     methods: {
-        create: function () {/** ... */},
+        create: function () {/** ... */
+        },
 
-        retrieveAll: function () {/** ... */},
+        retrieveAll: function () {/** ... */
+        },
 
         updateById: function (id) {
             const newName = this.$refs[`${id}-name`][0].value;
@@ -371,9 +392,11 @@ export default {
             this.enabledId = '';
         },
 
-        deleteById: function (id) {/** ... */},
+        deleteById: function (id) {/** ... */
+        },
 
-        enableEdit: function (id) {/** ... */}
+        enableEdit: function (id) {/** ... */
+        }
     }
 }
 ```

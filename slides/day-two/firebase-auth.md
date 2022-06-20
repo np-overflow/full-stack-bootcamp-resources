@@ -1,10 +1,11 @@
----
-layout: cover
----
-
 # Firebase Auth
 
-Allow your apps to have authentication service etc., Login & SignUp
+* Add authentication functionality into your application automagically!
+* Firebase Auth **helps you store your user data**, etc
+* You only need to provide a user interface!
+
+Here's a demo using Firebase Auth
+-> [https://bootcamp.np-overflow.club/examples/firebase/#/auth](https://bootcamp.np-overflow.club/examples/firebase/#/auth)
 
 ---
 layout: two-cols
@@ -109,9 +110,9 @@ layout: two-cols
 
 ```javascript
 // firebase.js
-import { initializeApp } from "firebase/app";
-import { getAuth } from 'firebase/auth';
-import { getDatabase } from 'firebase/database';
+import {initializeApp} from "firebase/app";
+import {getAuth} from 'firebase/auth';
+import {getDatabase} from 'firebase/database';
 
 const firebaseConfig = {
     apiKey: "********************",
@@ -128,7 +129,7 @@ const app = initializeApp(firebaseConfig);
 const authentication = getAuth();
 const database = getDatabase();
 
-export default { app, authentication, database }
+export default {app, authentication, database}
 ```
 
 ---
@@ -145,25 +146,25 @@ layout: two-cols
 
 ```html
 <!-- <template> -->
-    <table>
-        <thead>
-            <tr>
-                <th>Login | Registration</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input v-model="email" placeholder="Email" ref="email" /></td>
-            </tr>
-            <tr>
-                <td><input v-model="password" placeholder="Password" ref="password" /></td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <button @click="register">Register</button>
-            <button @click="login">Login</button>
-        </tfoot>
-    </table>
+<table>
+    <thead>
+    <tr>
+        <th>Login | Registration</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input v-model="email" placeholder="Email" ref="email"/></td>
+    </tr>
+    <tr>
+        <td><input v-model="password" placeholder="Password" ref="password"/></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <button @click="register">Register</button>
+    <button @click="login">Login</button>
+    </tfoot>
+</table>
 <!-- </template> -->
 ```
 
@@ -187,6 +188,7 @@ table {
     justify-content: center;
     align-items: center;
 }
+
 /* </style> */
 ```
 
@@ -202,7 +204,7 @@ layout: two-cols
 
 ```javascript
 // <script steup>
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 
 const authentication = getAuth();
 
@@ -236,7 +238,7 @@ layout: two-cols
 
 ```javascript
 // <script steup>
-import { /** ... */, signInWithEmailAndPassword } from "firebase/auth";
+import { /** ... */, signInWithEmailAndPassword} from "firebase/auth";
 
 export default {
     methods: {
@@ -252,8 +254,9 @@ export default {
                 .catch((error) => alert(error.message));
         },
 
-        register: function () { /** ... */}
-      }
+        register: function () { /** ... */
+        }
     }
+}
 // </script>
 ```

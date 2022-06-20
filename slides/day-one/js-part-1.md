@@ -15,8 +15,8 @@ layout: two-cols
 # Functions
 
 * Blocks of code that does something
-* Like mathematical functions, it has 
-  * **Input** (parameters/arguments) 
+* Like mathematical functions, it has
+  * **Input** (parameters/arguments)
   * **Output** (return value)
 
 ```mermaid
@@ -38,7 +38,7 @@ function <name>(<arguments>) {
 
 ```javascript
 function add(x, y) {
-  return x + y
+    return x + y
 }
 
 add(1, 2)
@@ -52,7 +52,7 @@ add(1, 2)
 
 ```javascript
 function minus(x, y) {
-  return x - y
+    return x - y
 }
 
 minus(5, 4)
@@ -88,11 +88,19 @@ console.error('This will be red')
 * You are recommended to add comments to provide helpful information to other people editing the code
 
 Single line comment
+
+<Runner code="console.log('This will show in the console!')">
+
 ```javascript
 console.log('This will show in the console!'); // This is a comment
 ```
 
-Multi-line comment (start with `/**` and end with `*/`. You can also add extra `*`s to make it look nice)
+</Runner>
+
+Multi-line comment (start with `/*` and end with `*/`. You can also add extra `*`s to make it look nice)
+
+<Runner code="console.log('This will show in the console!')">
+
 ```javascript
 /**
  * The asterisk on this line is just to make it look nice
@@ -100,6 +108,8 @@ Multi-line comment (start with `/**` and end with `*/`. You can also add extra `
  */
 console.log('This will show in the console!'); 
 ```
+
+</Runner>
 
 ---
 
@@ -112,7 +122,7 @@ console.log('This will show in the console!');
 `(var|let|const) <name of variable> = <value>`
 
 | Keyword | Accessibility                                   | Should I use this?     |
-| ------- | ----------------------------------------------- | ---------------------- |
+|---------|-------------------------------------------------|------------------------|
 | `var`   | Within the function it's declared in            | Avoid unless necessary |
 | `let`   | Within the closest curly braces --- `{` and `}` | ✅                      |
 | `const` | Creates a constant variable                     | ✅                      |
@@ -139,10 +149,9 @@ console.log(everywhere)
 
 </Runner>
 
-
 ---
 
-# Variables 
+# Variables
 
 ##### `let`
 
@@ -196,7 +205,7 @@ We used one type of variable just now, a `String`. but there are others!
 * Different types can store different variations of data, to make your life easier
 
 | Type      | Usage               |
-| --------- | ------------------- |
+|-----------|---------------------|
 | `String`  | Used for text       |
 | `Number`  | Used for numbers    |
 | `Boolean` | Used for true/false |
@@ -208,15 +217,15 @@ We used one type of variable just now, a `String`. but there are others!
 # Objects
 
 * A key-value pair
-* Declare using curly braces 
+* Declare using curly braces
   * `{` and `}`
 
 ```javascript
 const jimmy = {
-  name: 'Jimmy',
-  age: 21,
-  isCool: true,
-  friends: ['John', 'Jane', 'Jim'],
+    name: 'Jimmy',
+    age: 21,
+    isCool: true,
+    friends: ['John', 'Jane', 'Jim'],
 }
 
 ```
@@ -250,14 +259,14 @@ const friends = ['John', 'Jane', 'Jim']
 
 To access the values in the array, we have to get the *index* of the item
 
-An *index* refers to the position of the item in the array. 
+An *index* refers to the position of the item in the array.
 
 Indexes start from 0.
 
 <Runner code="console.log('Jane')">
 
 ```javascript
-console.log(friends[1]))
+console.log(friends[1])
 ```
 
 </Runner>
@@ -305,8 +314,12 @@ const { age } = jimmy
 * Customize the behavior of your program based on a condition
 * There are three keywords to do this
   * `if`
-  * `else`
+    * If condition is true, run block. Else, move down
   * `else if`
+    * If condition above is false and
+    * If condition is true, run block. Else, move down
+  * `else`
+    * Run block
 
 ```javascript
 if (<condition 1>) {
@@ -328,7 +341,7 @@ else {
   * For example, if variable `x` is greater than `y`
 
 | Comparator | Explanation              | Usage    |
-| ---------- | ------------------------ | -------- |
+|------------|--------------------------|----------|
 | `>`        | Greater than             | `x > y`  |
 | `<`        | Less than                | `x < y`  |
 | `>=`       | Greater than or equal to | `x >= y` |
