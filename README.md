@@ -21,8 +21,8 @@ Here are some links to the slides:
 | Day | Link                  | Permalink                                              |
 | --- | --------------------- | ------------------------------------------------------ |
 | 1   | [Day one](/day-one)   | [Day one](https://bootcamp.np-overflow.club/day-one)   |
-| 2   | [Day two](/day-two)   | [Day two](https://bootcamp.np-overflow.club/day-one)   |
-| 3   | [Day two](/day-three) | [Day two](https://bootcamp.np-overflow.club/day-three) |
+| 2   | [Day two](/day-two)   | [Day two](https://bootcamp.np-overflow.club/day-two)   |
+| 3   | [Day three](/day-three) | [Day three](https://bootcamp.np-overflow.club/day-three) |
 
 And here are some links to the examples:
 
