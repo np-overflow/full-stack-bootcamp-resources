@@ -26,30 +26,9 @@ src: introduction.md
 layout: cover
 ---
 
-# Games
-
-10.15am - 11.00am
-
-<style>
-h1 {
-  background-color: orange;
-  background-image: linear-gradient(45deg, orange 10%, orangered 50%);
-  background-size: 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
----
-layout: cover
----
-
 # Web fundamentals
 
-11.00am - 12.15pm
+10.15am - 11.30pm
 
 <style>
 h1 {
@@ -177,6 +156,28 @@ src: ./html.md
 ---
 src: ./js-part-1.md
 ---
+
+---
+layout: cover
+---
+
+# Games
+
+11.30am - 12.15pm
+
+<style>
+h1 {
+  background-color: orange;
+  background-image: linear-gradient(45deg, orange 10%, orangered 50%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
 
 ---
 layout: cover

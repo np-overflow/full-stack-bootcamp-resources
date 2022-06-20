@@ -53,8 +53,8 @@ How's everyone doing today?
 | Time              | Activity               |
 | ----------------- | ---------------------- |
 | 9.55am - 10.15am  | Arrival and attendance |
-| 10.15am - 11.00am | Icebreakers and games  |
-| 11.00am - 12.15pm | Web fundamentals       |
+| 10.15am - 11.30m  | Web fundamentals       |
+| 11.30am - 12.15pm | Icebreakers and games  |
 | 12.15pm - 1.15pm  | LONCH 🐔                |
 | 1.15pm - 4.30pm   | Web fundamentals + Vue |
 | 4.30pm - 5.30pm   | Practical time 🧪       |
