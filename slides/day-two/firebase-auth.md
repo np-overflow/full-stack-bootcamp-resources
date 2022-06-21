@@ -140,18 +140,14 @@ layout: two-cols
 ```vue
 
 <template>
-    <form v-else @submit.prevent="login">
-        <Input type="email" placeholder="jimmy@np-overflow.club" v-model="form.email">
-            Email
-        </Input>
+    <form @submit.prevent="login">
+        <input type="email" placeholder="jimmy@np-overflow.club" v-model="form.email">
         <br/>
-        <Input type="password" v-model="form.password" placeholder="jimmyslittlesecret">
-            Password
-        </Input>
+        <input type="password" v-model="form.password" placeholder="jimmyslittlesecret">
         <br/>
         <div class="flex gap-3 justify-between">
-            <Button variant="alternative" @click="register">Register</Button>
-            <Button type="submit">Login</Button>
+            <button variant="alternative" @click="register">Register</button>
+            <button type="submit">Login</button>
         </div>
     </form>
 </template>
