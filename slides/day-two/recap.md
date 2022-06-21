@@ -161,19 +161,13 @@ layout: two-cols
 ::right::
 
 ```javascript
-if (<condition 1
->)
-{
+if (<condition 1>) {
     // Code to execute if condition 1 is true
 }
-else
-if (<condition 2
->)
-{
+else if (<condition 2>) {
     // Code to execute if condition 1 is false and condition 2 is true
 }
-else
-{
+else {
     // Code to execute if condition 1 and condition 2 are both false
 }
 ```
