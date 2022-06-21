@@ -90,6 +90,8 @@ layout: two-cols
 # Firebase Auth - Add App
 
 * Install Firebase library in your vite project
+    1. `cd /path/to/project`
+    2. `pnpm i firebase`
 * Copy the JSON
 * Click on "Continue to console"
 
@@ -98,21 +100,15 @@ layout: two-cols
 <img class="h-full object-contain w-full" src="/images/Firebase-RegisterApp-003.png" />
 
 ---
-layout: two-cols
----
 
 # Auth (Code) - Init
 
-* Create new file 'firebase.js' under src folder
-* Paste the JSON into 'firebase.js'
+1. Add your Firebase config inside `main.js`
 
-::right::
+<br/>
 
 ```javascript
-// firebase.js
 import {initializeApp} from "firebase/app";
-import {getAuth} from 'firebase/auth';
-import {getDatabase} from 'firebase/database';
 
 const firebaseConfig = {
     apiKey: "********************",
@@ -125,11 +121,7 @@ const firebaseConfig = {
     measurementId: "G-CQGF65LHS5"
 };
 
-const app = initializeApp(firebaseConfig);
-const authentication = getAuth();
-const database = getDatabase();
-
-export default {app, authentication, database}
+initializeApp(firebaseConfig)
 ```
 
 ---
@@ -138,58 +130,31 @@ layout: two-cols
 
 # Auth (Code - HTML) - Register
 
-* Create a view component under 'src/components' folder
-* Create a view template
+* Create a new page under 'src/pages/' folder
 * Alternative way, copy & paste the code
 
 ::right::
 
-```html
-<!-- <template> -->
-<table>
-    <thead>
-    <tr>
-        <th>Login | Registration</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td><input v-model="email" placeholder="Email" ref="email"/></td>
-    </tr>
-    <tr>
-        <td><input v-model="password" placeholder="Password" ref="password"/></td>
-    </tr>
-    </tbody>
-    <tfoot>
-    <button @click="register">Register</button>
-    <button @click="login">Login</button>
-    </tfoot>
-</table>
-<!-- </template> -->
-```
+`Auth.vue`
 
----
-layout: two-cols
----
+```vue
 
-# Auth (Code - CSS) - Register
-
-* Add basic css design
-
-::right::
-
-```css
-/* <style scoped> */
-table {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-
-/* </style> */
+<template>
+    <form v-else @submit.prevent="login">
+        <Input type="email" placeholder="jimmy@np-overflow.club" v-model="form.email">
+            Email
+        </Input>
+        <br/>
+        <Input type="password" v-model="form.password" placeholder="jimmyslittlesecret">
+            Password
+        </Input>
+        <br/>
+        <div class="flex gap-3 justify-between">
+            <Button variant="alternative" @click="register">Register</Button>
+            <Button type="submit">Login</Button>
+        </div>
+    </form>
+</template>
 ```
 
 ---
@@ -202,28 +167,28 @@ layout: two-cols
 
 ::right::
 
-```javascript
-// <script steup>
-import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
+```html
 
-const authentication = getAuth();
+<script setup>
+    import {createUserWithEmailAndPassword} from 'firebase/auth';
 
-export default {
-    methods: {
-        register: function () {
-            const email = this.$refs.email.value;
-            const password = this.$refs.password.value;
+    const form = reactive({
+        email: '',
+        password: '',
+        errorMessage: null
+    })
 
-            createUserWithEmailAndPassword(authentication, email, password)
-                .then((credential) => {
-                    alert('SignUp ok, details in console panel')
-                    console.log(credential.user);
-                })
-                .catch((error) => alert(error.message));
+    async function register() {
+        form.errorMessage = null
+        console.log('register', form)
+        try {
+            const credentials = await createUserWithEmailAndPassword(auth, form.email, form.password)
+            console.log(credentials)
+        } catch (e) {
+            form.errorMessage = e.message
         }
     }
-}
-// </script>
+</script>
 ```
 
 ---
@@ -236,27 +201,51 @@ layout: two-cols
 
 ::right::
 
-```javascript
-// <script steup>
-import { /** ... */, signInWithEmailAndPassword} from "firebase/auth";
+```vue
 
-export default {
-    methods: {
-        login: function () {
-            const email = this.$refs.email.value;
-            const password = this.$refs.password.value;
+<script setup>
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth';
 
-            signInWithEmailAndPassword(authentication, email, password)
-                .then((credential) => {
-                    alert('SignIn ok, details in console panel')
-                    console.log(credential.user);
-                })
-                .catch((error) => alert(error.message));
-        },
+/**
+ * Register function from previous slide
+ * ...
+ */
 
-        register: function () { /** ... */
-        }
+async function login() {
+    form.errorMessage = null
+    try {
+        const credentials = await signInWithEmailAndPassword(auth, form.email, form.password)
+        console.log(credentials)
+    } catch (e) {
+        form.errorMessage = e.message
     }
 }
-// </script>
+</script>
+```
+
+---
+
+# Logout
+
+* Create a function to handle logout event
+
+```vue
+
+<script setup>
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth';
+
+/**
+ * Register and login functions from previous slide
+ * ...
+ */
+
+async function logout() {
+    form.errorMessage = null
+    try {
+        await signOut(auth)
+    } catch (e) {
+        form.errorMessage = e.message
+    }
+}
+</script>
 ```

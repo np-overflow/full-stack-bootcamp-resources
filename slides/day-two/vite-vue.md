@@ -14,6 +14,7 @@ layout: two-cols
   * Automagically bundles and optimizes your code
 * Extensible
   * Support for Vue, React, Svelte... the list goes on
+* Allows you to use libraries from [NPM](https://npmjs.com) (Node Package Manager) and other cool Vue features
 
 </v-clicks>
 
@@ -96,6 +97,18 @@ Select the `vue` project type
   * Folder containing source code
 
 ---
+
+# Directory layout
+
+| Path           | Purpose                             |
+|----------------|-------------------------------------|
+| `App.vue`      | Root Component                      |
+| `pages/`       | Different pages of your application |
+| `layouts/`     | Layouts that each page will use     |
+| `composables/` | Composable functions                |
+| `components/`  | Vue components                      |
+
+---
 layout: two-cols
 ---
 
@@ -127,8 +140,6 @@ const I_CAN_BE_USED_IN_THE_TEMPLATE = 'hello'
 ```
 
 ---
-layout: two-cols
----
 
 # Vue Composables
 
@@ -157,6 +168,7 @@ layout: two-cols
 ::right::
 
 `Component.vue`
+
 ```vue {all|3|5-7|9-11|all}
 
 <script setup>
@@ -177,10 +189,78 @@ onBeforeUnmount(function () {
 ```
 
 ---
+layout: two-cols
+---
+
+# Vue props
+
+* Props allow you to pass Javascript values to your Vue components
+* To define the props of a component, use `defineProps`
+* `defineProps` takes in an `Object` containing the types of your props
+
+::right::
+
+`Message.vue`
+
+```html
+
+<script setup>
+    const props = defineProps({
+        personName: String,
+        msg: String
+    })
+</script>
+
+<template>
+    <span>{{ props.personName }} sent {{ props.msg }}</span>
+</template>
+```
+
+`Chat.vue`
+
+```html {all|6}
+<script setup>
+    import Message from 'Message.vue'
+</script>
+
+<template>
+    <Message person-name="Qin Guan" msg="HELLO!"></Message>
+</template>
+```
+
+---
+layout: two-cols
+---
 
 # Vue slots
 
+* Slots allow you to add template content to your Vue components
+* In contrast to props, which only allows you to add Javascript values
+* Add slots to a component by using `<slot></slot>`
 
+::right::
+
+`StyledHeader.vue`
+
+```html {all|3}
+<template>
+    <h1 class="text-red-500">
+        <slot></slot>
+    </h1>
+</template>
+```
+
+`Page.vue`
+
+```html {all|6}
+<script setup>
+    import StyledHeader from 'StyledHeader.vue'
+</script>
+
+<template>
+    <StyledHeader>This will be red</StyledHeader>
+</template>
+```
 
 ---
 layout: two-cols
