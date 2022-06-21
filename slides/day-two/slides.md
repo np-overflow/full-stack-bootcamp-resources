@@ -50,10 +50,6 @@ src: recap.md
 ---
 
 ---
-src: vite-vue.md
----
-
----
 layout: cover
 ---
 
@@ -73,6 +69,10 @@ h1 {
   -moz-text-fill-color: transparent;
 }
 </style>
+
+---
+src: vite-vue.md
+---
 
 ---
 layout: cover
