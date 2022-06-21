@@ -76,7 +76,7 @@ name = "Something else" // No error!
 
 ```javascript
 console.log(name) // No error! But will show `undefined`
-let name = "Qin Guan"
+var name = "Qin Guan"
 name = "Something else" // No error!
 ```
 
