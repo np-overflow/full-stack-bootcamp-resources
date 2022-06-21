@@ -129,7 +129,7 @@ const jimmy = { // Curly brackets
 }
 
 const {name, age} = jimmy
-console.log(name, age) // Output: Jimmy, 21)
+console.log(name, age) // Output: Jimmy, 21
 ```
 
 ```javascript
