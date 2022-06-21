@@ -11,7 +11,7 @@ Here's a demo using Firebase Realtime Database
 layout: two-cols
 ---
 
-# RTDB (Setup)
+# Setup
 
 * Click on "Realtime Database"
 * Click on "Create Database"
@@ -24,7 +24,7 @@ layout: two-cols
 layout: two-cols
 ---
 
-# RTDB (Setup) - Region
+# Region
 
 * Toggle the dropdown list and<br/>select "Singapore (asia-southeast1)"
 * Click on "Next"
@@ -37,7 +37,7 @@ layout: two-cols
 layout: two-cols
 ---
 
-# RTDB (Setup) - Mode
+# Mode
 
 * Leave default<br/>"Start in **locked mode**"
 * Click on "Enable"
@@ -50,7 +50,7 @@ layout: two-cols
 layout: two-cols
 ---
 
-# RTDB (Setup) - Rules
+# Rules
 
 * Select "Rules" from the Tab
 * Change ".read" from `false` to `true`
@@ -65,25 +65,36 @@ layout: two-cols
 layout: two-cols
 ---
 
-# RTDB (Code - HTML) - Layout Table Header
+# Create RTDB page
 
-* Create a vue component under `src/components`
-* Add FontAwesome css library
-* Create a table with header `Name`, `Student ID`, `Course`
+* Create a new page `src/pages/` folder
+* Add some table headings
 
 ::right::
+
+`RTDB.vue`
 
 ```html
 
 <template>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"/>
-    <table>
+    <table class="w-full">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Student ID</th>
-            <th>Course</th>
-            <th></th>
+            <th class="min-w-50">
+                Name
+            </th>
+            <th class="min-w-50">
+                Course
+            </th>
+            <th class="min-w-50">
+                Favorite number
+            </th>
+            <th>
+                UID
+            </th>
+            <th>
+                Email
+            </th>
         </tr>
         </thead>
     </table>
@@ -94,115 +105,39 @@ layout: two-cols
 layout: two-cols
 ---
 
-# RTDB (Code - HTML) - Layout Table Row
+# Create RTDB page
 
-* Add `table row` 4 columns
-* Each row add 1 `textbox` (Name, StudentID, Course)
-* Last row add 2 `button` (Create, Fetch All)
+* Add table values
 
 ::right::
 
-```html
-<!-- <template> -->
-<!-- thead -->
-<tbody>
-<tr>
-    <td><input v-model="name" placeholder="Student Name" ref="name"/></td>
-    <td><input v-model="id" placeholder="Student ID" ref="id"/></td>
-    <td><input v-model="course" placeholder="Student Course" ref="course"/></td>
-    <td>
-        <button @click="create">Create</button>
-        <button @click="retrieveAll">Fetch All</button>
-    </td>
-</tr>
-</tbody>
-</table>
-<!-- </template> -->
-
-```
-
----
-layout: two-cols
----
-
-# RTDB (Code - HTML) - Layout Table Row
-
-* Create placeholder to holder retrieved data
-* Create a table row with 4 columns
-* For each row add 1 textbox (name, id, course)
-* For last row add 3 button (update, enable edit, delete)
-
-::right::
+`RTDB.vue`
 
 ```html
 
-<!-- <template> -->
-<!-- ... -->
-<!-- <tbody> -->
-<!-- <tr>...</tr> -->
-<tr v-for="student in studentList">
-    <td>
-        <input
-                :ref="student['id'] + '-name'"
-                :value="student['name']"
-                v-bind:disabled="enabledId !== student['id']"/>
-    </td>
-    <td>
-        <input
-                :ref="student['id'] + '-id'"
-                :value="student['id']"
-                v-bind:disabled="enabledId !== student['id']"/>
-    </td>
-    <td>
-        <input
-                :ref="student['id'] + '-course'"
-                :value="student['course']"
-                v-bind:disabled="enabledId !== student['id']"/>
-    </td>
-    <td>
-        <button
-                class="fa fa-floppy-o"
-                @click="updateById(student['id'])"
-                v-bind:disabled="enabledId !== student['id']"></button>
-
-        <button
-                class="fa fa-pencil-square-o"
-                @click="enableEdit(student['id'])"
-                v-bind:disabled="enabledId === student['id']"></button>
-
-        <button
-                class="fa fa-trash-o"
-                @click="deleteById(student['id'])"
-                v-bind:disabled="enabledId === student['id']"></button>
-    </td>
-</tr>
-<!-- </tbody> -->
-<!-- </table> -->
-<!-- </template> -->
-```
-
----
-layout: two-cols
----
-
-# RTDB (Code - CSS) - Basic Design
-
-* Align the table into center
-
-::right::
-
-```css
-/* <style scoped> */
-table {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-
-/* </style> */
+<template>
+    <!-- <table><thead>...</thead> -->
+    <tbody>
+    <tr v-for="{ uid, email, name, course, number } in data" class="border-b-2 border-orange-100">
+        <td>
+            {{ name }}
+        </td>
+        <td>
+            {{ course }}
+        </td>
+        <td>
+            {{ number }}
+        </td>
+        <td>
+            {{ uid }}
+        </td>
+        <td>
+            {{ email }}
+        </td>
+    </tr>
+    </tbody>
+    <!-- </table> -->
+</template>
 ```
 
 ---
@@ -217,35 +152,14 @@ layout: two-cols
 
 ::right::
 
-```javascript
-// <script>
-import {getDatabase, ref, set} from "firebase/database";
+```vue
 
-const database = getDatabase();
+<script setup>
+import {ref} from 'vue'
+import {getDatabase, onValue, ref as dbRef} from "firebase/database";
 
-export default {
-    methods: {
-        create: function () {
-            const name = this.$refs.name.value;
-            const id = this.$refs.id.value;
-            const course = this.$refs.course.value;
-
-            if ([name, id, course].includes('')) {
-                alert('1 or more of the given detail is null or empty');
-                return;
-            }
-
-            set(ref(database, `student/${id}`), {
-                name: name,
-                id: id,
-                course: course
-            });
-
-            this.enabledId = '';
-        }
-    }
-}
-// </script>
+const database = getDatabase()
+</script>
 ```
 
 ---

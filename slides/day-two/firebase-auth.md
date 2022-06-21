@@ -24,7 +24,7 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Firebase Auth - Email/Password
+# Email/Password
 
 * Click on "Email/Password"
 
@@ -36,7 +36,7 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Firebase Auth - Enable service
+# Enable service
 
 * Toggle the "switch" to enable the email/password authentication service
 * Click on "Save" button
@@ -49,7 +49,7 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Firebase Auth - Completed
+#  Completed
 
 A "Enabled" status will be show if the authentication service enabled sucessfully
 
@@ -61,7 +61,7 @@ A "Enabled" status will be show if the authentication service enabled sucessfull
 layout: two-cols
 ---
 
-# Firebase Auth - Add App
+# Add App
 
 * Click on "Project Overview"
 * Click on "Web project"
@@ -74,7 +74,7 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Firebase Auth - Add App
+# Add App
 
 * Give your app a nickname
 * Click on "Register app"
@@ -87,7 +87,7 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Firebase Auth - Add App
+# Add App
 
 * Install Firebase library in your vite project
     1. `cd /path/to/project`
@@ -101,7 +101,7 @@ layout: two-cols
 
 ---
 
-# Auth (Code) - Init
+# Init Firebase
 
 1. Add your Firebase config inside `main.js`
 
@@ -128,7 +128,7 @@ initializeApp(firebaseConfig)
 layout: two-cols
 ---
 
-# Auth (Code - HTML) - Register
+# Create auth page
 
 * Create a new page under 'src/pages/' folder
 * Alternative way, copy & paste the code
@@ -157,17 +157,18 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Auth (Code - JS) - Register
+# Register function
 
-* Create a function to handle signup event
+* Create a function to handle register event
 
 ::right::
 
 ```html
 
 <script setup>
-    import {createUserWithEmailAndPassword} from 'firebase/auth';
+    import {createUserWithEmailAndPassword, getAuth} from 'firebase/auth';
 
+    const auth = getAuth()
     const form = reactive({
         email: '',
         password: '',
@@ -191,7 +192,7 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Auth (Code - JS) - LogIn
+# Login
 
 * Create a function to handle login event
 
@@ -200,7 +201,7 @@ layout: two-cols
 ```vue
 
 <script setup>
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth';
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getAuth} from 'firebase/auth';
 
 /**
  * Register function from previous slide
@@ -228,7 +229,7 @@ async function login() {
 ```vue
 
 <script setup>
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth';
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getAuth} from 'firebase/auth';
 
 /**
  * Register and login functions from previous slide

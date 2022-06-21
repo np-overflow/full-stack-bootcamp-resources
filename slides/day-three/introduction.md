@@ -48,16 +48,18 @@ How's everyone doing today?
 
 ---
 
-# Agenda of the day
+#### Agenda of the day
 
-| Time              | Activity               |
-| ----------------- | ---------------------- |
-| 9.55am - 10.15am  | Arrival and attendance |
-| 10.15am - 11.00am | Icebreakers and games  |
-| 11.00am - 12.15pm | Recap                  |
-| 12.15pm - 1.15pm  | LONCH 🐔                |
-| 1.15pm - 4.45pm   | Build ⚒️                |
-| 4.45pm - 5.30pm   | Showcase ✨🎉            |
+| Time              | Activity                |
+|-------------------|-------------------------|
+| 9.55am - 10.05am  | Arrival and attendance  |
+| 10.05am - 10.50am | Icebreakers and games   |
+| 10.50am - 12.00pm | Firebase Auth + RTDB    |
+| 12.00pm - 1.15pm  | LONCH 🐔                |
+| 1.15pm - 2.15pm   | Exploring styles        |
+| 2.15pm - 2.45pm   | Firebase Static Hosting |
+| 2.45pm - 5.15pm   | Build 🛠️               |
+| 5.15pm - 5.30pm   | Showcase ✨🎉            |
 
 ---
 
@@ -67,29 +69,4 @@ How's everyone doing today?
 
 * [https://bootcamp.np-overflow.club](https://bootcamp.np-overflow.club)
   * All resources will be accessible from this URL, including this presentation!
-
----
-
-# Finding your way around things
-
-### Using the slides
-
-Interactive examples like this:
-
-<div grid="~ gap-4 cols-2">
-<div>
-
-<Runner code="console.log('Hello there! 🐔');console.error('This is very red');">
-
-```js
-console.log('Hello there! 🐔');
-console.error('This is very red');
-```
-
-</Runner>
-
-are available throughout the slides!
-
-</div>
-</div>
 
