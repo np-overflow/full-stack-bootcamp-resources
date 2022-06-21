@@ -222,7 +222,7 @@ for (const idx in friends) {
     console.log(friends[idx]) // output: Qin Guan Jimmy Wai Hang
 }
 
-for (const friend of friend) {
+for (const friend of friends) {
     console.log(friend) // output: same as above
 }
 ```
