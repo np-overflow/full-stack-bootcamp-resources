@@ -273,6 +273,12 @@ try {
 ```
 
 ---
+layout: center
+---
+
+# 10 minutes break
+
+---
 layout: two-cols
 ---
 
