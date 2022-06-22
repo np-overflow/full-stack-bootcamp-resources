@@ -62,6 +62,18 @@ layout: two-cols
 <img class="h-full object-contain w-full" src="/images/Firebase-RTDB-004.png" />
 
 ---
+layout: center
+---
+
+<div class="text-center">
+
+# ⚠️ Demo on screen ⚠️
+
+🙌 Not all parts are in the slides! Remember to follow along! 🙌
+
+</div>
+
+---
 layout: two-cols
 ---
 
@@ -304,16 +316,4 @@ layout: two-cols
     </form>
 </template>
 ```
-
----
-layout: center
----
-
-<div class="text-center">
-
-# ⚠️ Demo on screen ⚠️
-
-🙌 This part does not have slides! Remember to follow along! 🙌
-
-</div>
 
