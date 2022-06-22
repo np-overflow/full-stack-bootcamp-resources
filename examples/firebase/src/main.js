@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import { initializeApp } from 'firebase/app';
 
-import 'uno.css'
 import '@unocss/reset/tailwind.css'
+import 'uno.css'
 
 import App from './App.vue'
 
