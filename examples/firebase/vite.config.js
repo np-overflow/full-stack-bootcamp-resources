@@ -1,11 +1,10 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-
-import windiCSS from 'vite-plugin-windicss'
+import unocss from 'unocss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), windiCSS()],
+  plugins: [vue(), unocss()],
   build: {
     outDir: '../../dist/examples/firebase'
   }

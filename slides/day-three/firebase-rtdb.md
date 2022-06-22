@@ -62,19 +62,78 @@ layout: two-cols
 <img class="h-full object-contain w-full" src="/images/Firebase-RTDB-004.png" />
 
 ---
+
+# Create RTDB Composable
+
+<div grid="~ cols-2" class="gap-5">
+<div>
+
+* Recap: what is a composable?
+  * Splitting your reactive variables and logic into its own function
+  * Makes your reactive logic **reusable**
+* Create your file in the `composables/` folder
+
+</div>
+<div>
+
+`use-rtdb.js`
+
+```javascript
+import {ref} from 'vue'
+import {getDatabase, onValue, ref as dbRef} from "firebase/database";
+
+export function useRTDB(path) {
+    const data = ref(undefined)
+
+    const database = getDatabase()
+    const docRef = dbRef(database, path)
+
+    onValue(docRef, (snapshot) => {
+        data.value = snapshot.val()
+    })
+
+    return {data, database}
+}
+```
+
+</div>
+</div>
+
+---
 layout: two-cols
 ---
 
 # Create RTDB page
 
 * Create a new page `src/pages/` folder
-* Add some table headings
+* Use our composable to get data from RTDB
 
 ::right::
 
 `RTDB.vue`
 
-```html
+```vue
+
+<script setup>
+import {useRTDB} from "../composables/use-rtdb.js";
+
+const {data, database} = useRTDB('students')
+</script>
+```
+
+---
+layout: two-cols
+---
+
+# Create RTDB page
+
+* To show the data in a table, first we add the table headings
+
+::right::
+
+`RTDB.vue`
+
+```vue
 
 <template>
     <table class="w-full">
@@ -107,7 +166,7 @@ layout: two-cols
 
 # Create RTDB page
 
-* Add table values
+* Display values in our table using the `v-for` directive
 
 ::right::
 
@@ -144,21 +203,39 @@ layout: two-cols
 layout: two-cols
 ---
 
-# RTDB (Code - JS) - Create
+# Create items in RTDB
 
-* Import `getDatabase`, `ref`, `set` from `firebase/database` library
-* Initialize a database
-* Add create method to handle insert event
+* To let users add their own entry to RTDB, let's create a form
+* We also make a function `create`, that adds the entries using our form values
 
 ::right::
 
 ```vue
 
 <script setup>
+import {set, ref as dbRef} from "firebase/database"
+import {getAuth} from 'firebase/auth'
 import {ref} from 'vue'
-import {getDatabase, onValue, ref as dbRef} from "firebase/database";
 
-const database = getDatabase()
+/**
+ * Other code we wrote on previous slides
+ */
+
+const user = getAuth().currentUser
+
+const form = ref({
+    name: '',
+    course: '',
+    number: 0
+})
+
+function create() {
+    set(dbRef(database, `students/${user.value.uid}`), {
+        ...form.value,
+        uid: user.value.uid,
+        email: user.value.email,
+    })
+}
 </script>
 ```
 
@@ -166,151 +243,39 @@ const database = getDatabase()
 layout: two-cols
 ---
 
-# RTDB (Code - JS) - Retrieve
+# Create items in RTDB
 
-* Import `onValue` from `firebase/database` library
-
-::right::
-
-```javascript
-// <script>
-import { /** ref */, onValue, /** set */} from "firebase/database";
-
-export default {
-    data() {
-        return {
-            studentList: []
-        }
-    },
-    methods: {
-        create: function () { /** ... */
-        },
-
-        retrieveAll: function () {
-            onValue(ref(database, 'student'), (snapshot) => {
-                this.studentList = snapshot.val();
-            });
-        }
-    }
-}
-// </script>
-```
-
----
-layout: two-cols
----
-
-# RTDB (Code - JS) - Delete
-
-* Import `remove` from `firebase/database` library
+* Let's show the form in the `template`
 
 ::right::
 
-```javascript
-// <script>
-import { /** ..., set */, remove} from "firebase/database";
+`RTDB.vue`
 
-export default {
-    data() {/** ... */
-    },
+```vue
 
-    methods: {
-        create: function () {/** ... */
-        },
-
-        retrieveAll: function () {/** ... */
-        },
-
-        deleteById: function (id) {
-            remove(ref(database, `student/${id}`));
-        },
-    }
-}
-// </script>
+<template>
+    <!-- Other code from previous slides -->
+    <form @submit.prevent="create">
+        <div class="grid gap-2 grid-cols-1 md:grid-cols-3">
+            <input type="text" v-model="form.name" placeholder="Jimmy">
+            <input type="text" v-model="form.course" placeholder="Infocomm Technology">
+            <input type="number" v-model="form.number">
+        </div>
+        <br/>
+        <button type="submit">Send 🚀</button>
+    </form>
+</template>
 ```
 
 ---
-layout: two-cols
+layout: center
 ---
 
-# RTDB (Code - JS) - Enable TextBox For Editing
+<div class="text-center">
 
-* Create a new function to enable textbox
+# ⚠️ Demo on screen ⚠️
 
-::right::
+🙌 This part does not have slides! Remember to follow along! 🙌
 
-```javascript
-export default {
-    data() {
-        return {
-            /** studentList */
-            enabledId: '',
-        }
-    },
-    methods: {
-        create: function () {/** ... */
-        },
+</div>
 
-        retrieveAll: function () {/** ... */
-        },
-
-        deleteById: function (id) {/** ... */
-        },
-
-        enableEdit: function (id) {
-            this.enabledId = id;
-        }
-    }
-}
-```
-
----
-layout: two-cols
----
-
-# RTDB (Code - JS) - Update
-
-* Create a new function to handle update event
-* Step 1 insert new record
-* Step 2 delete old record
-
-::right::
-
-```javascript
-export default {
-    data() {/** ... */
-    },
-    methods: {
-        create: function () {/** ... */
-        },
-
-        retrieveAll: function () {/** ... */
-        },
-
-        updateById: function (id) {
-            const newName = this.$refs[`${id}-name`][0].value;
-            const newId = this.$refs[`${id}-id`][0].value;
-            const newCourse = this.$refs[`${id}-course`][0].value;
-
-            if ([newName, newId, newCourse].includes('')) {
-                alert('1 or more of the given detail is null or empty');
-                return;
-            }
-
-            set(ref(database, `student/${newId}`), {
-                name: newName,
-                id: newId,
-                course: newCourse
-            }).then(() => (newId === id) ? null : this.deleteById(id));
-
-            this.enabledId = '';
-        },
-
-        deleteById: function (id) {/** ... */
-        },
-
-        enableEdit: function (id) {/** ... */
-        }
-    }
-}
-```

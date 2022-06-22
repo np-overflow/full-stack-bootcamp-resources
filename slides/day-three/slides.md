@@ -31,10 +31,33 @@ src: introduction.md
 * Please inform us if you feel unwell at any point in time today
 
 ---
-layout: center
+layout: cover
+---
+
+# Games
+
+10.05am - 10.50am
+
+<style>
+h1 {
+  background-color: orange;
+  background-image: linear-gradient(45deg, orange 10%, orangered 50%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+---
+layout: cover
 ---
 
 # Firebase Realtime Database
+
+10.50am - 12.00pm
 
 <style>
 h1 {
@@ -107,7 +130,7 @@ layout: cover
 <div class="flex gap-10 items-center">
 
 <h1 class="m-0">
-  Firebase
+  Deploy our app 
 </h1>
 
 <img class="w-14" src="https://api.iconify.design/logos:firebase.svg"/>
@@ -137,6 +160,8 @@ layout: cover
 
 # Build
 
+2.45pm - 5.15pm
+
 <style>
 h1 {
   background-color: orange;
@@ -150,4 +175,6 @@ h1 {
 }
 </style>
 
-
+---
+src: ./build.md
+---
