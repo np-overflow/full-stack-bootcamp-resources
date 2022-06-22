@@ -25,6 +25,7 @@ layout: two-cols
 ::right::
 
 `vite.config.js`
+
 ```javascript {all|4|10|all}
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -54,6 +55,33 @@ layout: two-cols
 
 ::right::
 
+`uno.config.js`
+
+```javascript
+import {defineConfig} from 'unocss'
+
+import {presetUno} from 'unocss'
+import presetAttributify from '@unocss/preset-attributify'
+import transformerDirective from '@unocss/transformer-directives'
+import transformerVariantGroup from '@unocss/transformer-variant-group'
+
+export default defineConfig({
+    presets: [
+        presetUno(),
+        presetAttributify()
+    ],
+    transformers: [
+        transformerDirective(),
+        transformerVariantGroup()
+    ],
+    theme: {
+        fontFamily: {
+            sans: ['Roboto Flex', 'sans-serif'],
+        },
+    },
+})
+```
+
 ---
 layout: two-cols
 ---
@@ -65,6 +93,7 @@ layout: two-cols
 ::right::
 
 `main.js`
+
 ```javascript {all|4}
 import { createApp } from 'vue'
 import { initializeApp } from 'firebase/app';
