@@ -73,27 +73,27 @@ layout: two-cols
 ::right::
 
 ```javascript
-import { ref, computed } from 'vue'
-import { getAuth } from "firebase/auth";
+import {ref, computed} from 'vue'
+import {getAuth} from "firebase/auth";
 
 export function useAuth() {
-  const auth = getAuth()
+    const auth = getAuth()
 
-  const loading = ref(true)
-  const user = ref(auth.currentUser)
-  const isAuthenticated = computed(() => !!user.value)
+    const loading = ref(true)
+    const user = ref(auth.currentUser)
+    const isAuthenticated = computed(() => !!user.value)
 
-  auth.onIdTokenChanged(authUser => {
-    user.value = authUser
-    loading.value = false
-  })
+    auth.onIdTokenChanged(authUser => {
+        user.value = authUser
+        loading.value = false
+    })
 
-  return {
-    auth,
-    user,
-    loading,
-    isAuthenticated,
-  }
+    return {
+        auth,
+        user,
+        loading,
+        isAuthenticated,
+    }
 }
 ```
 
@@ -246,18 +246,20 @@ layout: two-cols
 
 ::right::
 
+`RTDB.vue`
+
 ```vue
 
 <script setup>
 import {set, ref as dbRef} from "firebase/database"
-import {getAuth} from 'firebase/auth'
 import {ref} from 'vue'
+import {useAuth} from '../composables/use-auth.js'
 
 /**
  * Other code we wrote on previous slides
  */
 
-const user = getAuth().currentUser
+const {user} = useAuth()
 
 const form = ref({
     name: '',
