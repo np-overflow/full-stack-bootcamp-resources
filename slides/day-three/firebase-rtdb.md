@@ -62,6 +62,42 @@ layout: two-cols
 <img class="h-full object-contain w-full" src="/images/Firebase-RTDB-004.png" />
 
 ---
+layout: two-cols
+---
+
+# Continuation from yesterday
+
+* Let's refactor our code into composables
+* Create a new file `composables/use-auth.js`
+
+::right::
+
+```javascript
+import { ref, computed } from 'vue'
+import { getAuth } from "firebase/auth";
+
+export function useAuth() {
+  const auth = getAuth()
+
+  const loading = ref(true)
+  const user = ref(auth.currentUser)
+  const isAuthenticated = computed(() => !!user.value)
+
+  auth.onIdTokenChanged(authUser => {
+    user.value = authUser
+    loading.value = false
+  })
+
+  return {
+    auth,
+    user,
+    loading,
+    isAuthenticated,
+  }
+}
+```
+
+---
 
 # Create RTDB Composable
 

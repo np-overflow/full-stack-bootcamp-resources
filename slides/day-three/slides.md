@@ -178,3 +178,11 @@ h1 {
 ---
 src: ./build.md
 ---
+
+---
+layout: cover
+---
+
+# Thank you
+
+We hope you had fun, stay tuned for more workshops to come!
