@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
-    "unocss": "^0.48.4",
+    "unocss": "^0.49.1",
     "vite": "^4.0.4",
     "vite-plugin-windicss": "^1.8.10"
   }
