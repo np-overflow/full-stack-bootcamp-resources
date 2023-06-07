@@ -1,4 +1,8 @@
-  ul {
-    list-style: disc;
-    padding-left: 1.25em;
-  }
+ul {
+  list-style: disc;
+  padding-left: 1.25em;
+}
+
+#slideshow {
+  position: relative;
+}
