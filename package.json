@@ -8,13 +8,12 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist/ && pnpm -r run build && node index.js"
-  },
-  "dependencies": {
-    "slidev-theme-geist": "^0.8.1"
+    "build": "rimraf dist/ && vitepress build && pnpm -r run build"
   },
   "devDependencies": {
     "marked": "^5.0.0",
-    "rimraf": "^5.0.0"
+    "rimraf": "^5.0.0",
+    "vitepress": "1.0.0-beta.1",
+    "slidev-theme-geist": "^0.8.1"
   }
 }
