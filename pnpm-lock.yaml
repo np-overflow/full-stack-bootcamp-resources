@@ -18,8 +18,8 @@ importers:
         specifier: ^0.8.1
         version: 0.8.1
       vitepress:
-        specifier: 1.0.0-rc.17
-        version: 1.0.0-rc.17(@algolia/client-search@4.19.1)(search-insights@2.6.0)
+        specifier: 1.0.0-rc.19
+        version: 1.0.0-rc.19(@algolia/client-search@4.19.1)(search-insights@2.6.0)
 
   examples/firebase:
     dependencies:
@@ -6738,13 +6738,16 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitepress@1.0.0-rc.17(@algolia/client-search@4.19.1)(search-insights@2.6.0):
-    resolution: {integrity: sha512-OPyP/VExNUk1aiErOgLE7Vv9Tgr9i9DZHDlDzqBcLfvDpXq33CDfn42JSzpsKGA020HOFOnV+t3/S1i/T5n7bg==}
+  /vitepress@1.0.0-rc.19(@algolia/client-search@4.19.1)(search-insights@2.6.0):
+    resolution: {integrity: sha512-qWHz7Qrk2wCPMANqWi3Yt5tdFCLjy7j37wCFAGuQu78FEDJCC+bh64J69V2RfAa2SuKPygnjDPXL4qmhAd7UhQ==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4.3.2
+      postcss: ^8.4.30
     peerDependenciesMeta:
       markdown-it-mathjax3:
+        optional: true
+      postcss:
         optional: true
     dependencies:
       '@docsearch/css': 3.5.2
