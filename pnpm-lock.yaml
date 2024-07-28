@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       marked:
-        specifier: ^11.1.1
-        version: 11.1.1
+        specifier: ^13.0.3
+        version: 13.0.3
       rimraf:
         specifier: ^5.0.5
         version: 5.0.5
@@ -5163,8 +5163,8 @@ packages:
       uc.micro: 2.0.0
     dev: false
 
-  /marked@11.1.1:
-    resolution: {integrity: sha512-EgxRjgK9axsQuUa/oKMx5DEY8oXpKJfk61rT5iY3aRlgU6QJtUcxU5OAymdhCvWvhYcd9FKmO5eQoX8m9VGJXg==}
+  /marked@13.0.3:
+    resolution: {integrity: sha512-rqRix3/TWzE9rIoFGIn8JmsVfhiuC8VIQ8IdX5TfzmeBucdY05/0UlzKaw0eVtpcN/OdVFpBk7CjKGo9iHJ/zA==}
     engines: {node: '>= 18'}
     hasBin: true
     dev: true
@@ -6161,6 +6161,7 @@ packages:
 
   /shikiji-compat@0.9.15:
     resolution: {integrity: sha512-lZOpp3R0FpGDc1hJhDave7tDIThc048RFQCgcMFDtd2KpJHCTwKx3JC63f88RK4NMMPsqm49DW2aXIVL9edqJw==}
+    deprecated: Shikiji is merged back to Shiki v1.0, please migrate over to get the latest updates
     dependencies:
       shikiji: 0.9.15
       shikiji-transformers: 0.9.15
